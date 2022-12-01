@@ -1,38 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   handle_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/15 23:47:01 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/11/30 13:47:13 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2022/11/30 13:43:34 by nnuno-ca          #+#    #+#             */
+/*   Updated: 2022/11/30 17:54:41 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
-int	ft_atoi(const char *str)
+void	handle_error(void *to_free)
 {
-	int			res;
-	int			signal;
-	int			i;
-
-	res = 0;
-	signal = 1;
-	i = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			signal = -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = ((res * 10) + (str[i] - '0'));
-		i++;
-	}
-	return (res * signal);
+	free(to_free);
+	ft_putstr_fd("Error\n", 2);
+	exit(EXIT_FAILURE);
 }
