@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 14:38:54 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/11/30 20:10:46 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/04 17:59:27 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,12 @@ int	*conv_argv_to_int(int argc, char **argv)
 }
 
 //checks whether all characters provided are digits
+
+
+
+
+
+// NEGATIVE NUMBERS ARE NOT PASSING
 void	check_args(int argc, char **argv)
 {
 	int	i;
@@ -64,6 +70,10 @@ void	check_args(int argc, char **argv)
 				handle_error(NULL);
 	}
 }
+
+
+
+
 
 int	*parse_input(int argc, char **argv)
 {

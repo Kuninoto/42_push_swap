@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:59:25 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/01 00:55:29 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/04 17:41:56 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
+
+# define STACK_SIZE argc - 1
 
 void	handle_error(void *to_free);
 int		*parse_input(int argc, char **argv);
@@ -48,5 +50,7 @@ void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
+
+void	insertion_sort(int *int_list, int stack_size);
 
 #endif

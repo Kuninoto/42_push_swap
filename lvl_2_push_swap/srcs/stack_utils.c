@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 19:39:38 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/11/30 20:38:10 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/02 14:13:21 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ bool	isempty(t_stack *stack)
 		return (true);
 	else
 		return (false);
-}
+} 
 
 bool	isfull(t_stack *stack)
 {
