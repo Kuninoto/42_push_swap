@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 16:09:05 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/02 12:31:59 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/04 23:38:33 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	pa(t_stack *a, t_stack *b)
 	if (isempty(b))
 		return ;
 	push(a, pop(b));
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_stack *a, t_stack *b)
@@ -55,4 +56,5 @@ void	pb(t_stack *a, t_stack *b)
 	if (isempty(a))
 		return ;
 	push(b, pop(a));
+	write(1, "pb\n", 3);
 }
