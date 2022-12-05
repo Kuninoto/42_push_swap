@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 14:38:54 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/04 17:59:27 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/05 15:05:26 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,6 @@ int	*conv_argv_to_int(int argc, char **argv)
 }
 
 //checks whether all characters provided are digits
-
-
-
-
-
-// NEGATIVE NUMBERS ARE NOT PASSING
 void	check_args(int argc, char **argv)
 {
 	int	i;
@@ -64,21 +58,23 @@ void	check_args(int argc, char **argv)
 	i = 0;
 	while (argv[++i])
 	{
-		j = 0;
-		while (argv[i][j])
-			if (ft_isdigit(argv[i][j++]) == 0)
+		j = -1;
+		while (argv[i][++j])
+		{
+			if ((!ft_isdigit(argv[i][j]) && argv[i][j] != '-') || 
+				(argv[i][j] == '-' && !ft_isdigit(argv[i][j + 1]))
+			   )
 				handle_error(NULL);
+		}
 	}
 }
-
-
-
-
 
 int	*parse_input(int argc, char **argv)
 {
 	int	*int_list;
 
+	if (argc < 2)
+		exit(EXIT_SUCCESS);
 	check_args(argc, argv);
 	int_list = conv_argv_to_int(argc, argv);
 	check_duplicates(int_list, (argc - 1));
