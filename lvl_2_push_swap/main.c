@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:54:26 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/04 18:41:07 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/05 01:03:52 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,31 +43,55 @@ t_stack *init_a(int *int_arr, int arr_len)
 	return (a);
 }
 
-int	find_midpoint(t_stack *stack, int chunk_start)
-{
-	int		mid_point;
-	int		i;
-	int		chunk_size;
-	int		*sorted_arr;
+/*
+	find mid point
+	everything less than midpoint goes for stack b
 
-	mid_point = 0;
+	
+*/
+
+void	move_smaller_bottom(t_stack *a, t_stack *b, int mid_point)
+{
+	int	i;
+
 	i = 0;
-	chunk_size = (stack->top + 1) - chunk_start;
-	sorted_arr = malloc(chunk_size * sizeof(int));
-	while ((i + chunk_start) < stack->stack_size)
+	while (i < a->top)
 	{
-		sorted_arr[i] = stack->int_list[i + chunk_start];			
-		i++;
+		if (a->int_list[i] < mid_point)
+		{
+			rra(a);
+			pb(a, b);
+		}
 	}
-	insertion_sort(sorted_arr, chunk_size);
-	printf("sorted_arr = ");
-	for (int j = 0; j < 4; j++)
-		printf("%d ", sorted_arr[j]);
-	printf("\n");
-	mid_point = sorted_arr[(chunk_size / 2)];
-	free(sorted_arr);
-	sorted_arr = NULL;
-	return (mid_point);
+}
+
+bool	is_bottom_smaller(t_stack *stack, int mid_point)
+{
+	if (stack->int_list[0] < mid_point)
+		return (true);
+	else
+		return (false);
+}
+
+// moves every number smaller than mid point to stack b
+void	move_smaller_top(t_stack *a, t_stack *b, int mid_point)
+{
+	int	i;
+
+	i = a->top;
+	while (i > 0)
+	{
+		if (a->int_list[i] < mid_point)
+			pb(a, b);
+		else if (is_bottom_smaller(a, mid_point) == true)
+			move_smaller_bottom(a, b, mid_point);
+		else
+		{
+			while (a->int_list[a->top] >= mid_point)
+				ra(a);
+		}
+		i--;
+	}
 }
 
 int	main(int argc, char **argv)
@@ -78,9 +102,41 @@ int	main(int argc, char **argv)
 
 	a = init_a(parse_input(argc, argv), (STACK_SIZE));
 	b = init_b(STACK_SIZE);
-	
 	mid_point = find_midpoint(a, 0);
-	printf("MID POINT = %d\n", mid_point);
+	
+	printf("mid point = %d\n", mid_point);
+
+
+	printf("Init a and b:\n");	
+	int i = a->top;
+	int j = b->top;
+	while (i >= 0)
+	{
+		printf("%d %d\n", a->int_list[i], b->int_list[j]);
+		if (j > 0)
+			j--;
+		i--;
+	}
+	printf("_ _\n");
+	printf("a b\n\n");
+
+
+	move_smaller_top(a, b, mid_point);
+	
+	printf("\n");
+
+	i = a->top;
+	j = b->top;
+	while (i >= 0)
+	{
+		printf("%d %d\n", a->int_list[i], b->int_list[j]);
+		if (j > 0)
+			j--;
+		i--;
+	}
+	printf("_ _\n");
+	printf("a b\n\n");
+
 
 	free(a->int_list);
 	free(b->int_list);

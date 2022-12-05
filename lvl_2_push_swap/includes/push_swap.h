@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:59:25 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/04 17:41:56 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/04 22:31:55 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 
+int		find_midpoint(t_stack *stack, int chunk_start);
 void	insertion_sort(int *int_list, int stack_size);
 
 #endif
