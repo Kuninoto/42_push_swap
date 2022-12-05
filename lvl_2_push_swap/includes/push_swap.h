@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:59:25 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/04 22:31:55 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/05 01:43:02 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ typedef struct s_stack {
 	int	*int_list;
 	int	top;
 }				t_stack;
+
+t_stack *init_b(int arr_len);
+t_stack *init_a(int *int_arr, int arr_len);
 
 // STACK UTILS
 bool	isempty(t_stack *stack);
