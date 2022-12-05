@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:54:26 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/05 02:42:27 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:46:23 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	move_smaller_bottom(t_stack *a, t_stack *b, int mid_point)
 
 bool	is_bottom_smaller(t_stack *stack, int mid_point)
 {
-	if (stack->int_list[0] < mid_point)
+	if (stack->int_list[0] <= mid_point)
 		return (true);
 	else
 		return (false);
@@ -46,15 +46,15 @@ void	move_smaller_top(t_stack *a, t_stack *b, int mid_point)
 	int	i;
 
 	i = a->top;
-	while (i > 0)
+	while (i > (a->top / 2))
 	{
-		if (a->int_list[i] < mid_point)
+		if (a->int_list[a->top] < mid_point)
 			pb(a, b);
 		else if (is_bottom_smaller(a, mid_point) == true)
 			move_smaller_bottom(a, b, mid_point);
 		else
 		{
-		//	while (a->int_list[a->top] > mid_point)
+			while (a->int_list[a->top] >= mid_point)
 				ra(a);
 		}
 		i--;
@@ -111,6 +111,10 @@ int	main(int argc, char **argv)
 	free(b);
 	return (EXIT_SUCCESS);
 }
+
+/*
+	TEST WITH NEGATIVE INPUT
+*/
 
 /* printf("Init a and b:\n");
 	
