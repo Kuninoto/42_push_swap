@@ -6,42 +6,11 @@
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:54:26 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/05 01:03:52 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/05 02:42:27 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
-
-t_stack *init_b(int arr_len)
-{
-	t_stack	*b;
-
-	b = malloc(sizeof(t_stack));
-	if (b == NULL)
-		handle_error(NULL);
-	b->stack_size = arr_len;
-	b->int_list = malloc(arr_len * sizeof(int));
-	b->top = -1;
-	return (b);
-}
-
-t_stack *init_a(int *int_arr, int arr_len)
-{
-	t_stack	*a;
-	int		i;
-	
-	a = malloc(sizeof(t_stack));
-	if (a == NULL)
-		handle_error(NULL);
-	a->stack_size = arr_len;
-	a->int_list = malloc(arr_len * sizeof(int));
-	a->top = -1;
-	i = (arr_len - 1);
-	while (i >= 0)
-		push(a, int_arr[i--]);;
-	free(int_arr);
-	return (a);
-}
 
 /*
 	find mid point
@@ -55,13 +24,11 @@ void	move_smaller_bottom(t_stack *a, t_stack *b, int mid_point)
 	int	i;
 
 	i = 0;
-	while (i < a->top)
+	while (a->int_list[i] < mid_point)
 	{
-		if (a->int_list[i] < mid_point)
-		{
-			rra(a);
-			pb(a, b);
-		}
+		rra(a);
+		pb(a, b);
+		i++;
 	}
 }
 
@@ -87,7 +54,7 @@ void	move_smaller_top(t_stack *a, t_stack *b, int mid_point)
 			move_smaller_bottom(a, b, mid_point);
 		else
 		{
-			while (a->int_list[a->top] >= mid_point)
+		//	while (a->int_list[a->top] > mid_point)
 				ra(a);
 		}
 		i--;
@@ -130,7 +97,7 @@ int	main(int argc, char **argv)
 	while (i >= 0)
 	{
 		printf("%d %d\n", a->int_list[i], b->int_list[j]);
-		if (j > 0)
+		if (j >= 0)
 			j--;
 		i--;
 	}
