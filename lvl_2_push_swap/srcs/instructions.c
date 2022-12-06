@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 16:09:05 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/06 01:29:10 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/06 02:28:09 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	sa(t_stack *a)
 	temp = a->int_list[a->top - 1];
 	a->int_list[a->top - 1] = a->int_list[a->top];
 	a->int_list[a->top] = temp;
+	write(1, "sa\n", 3);
 }
 
 // Swap the first 2 elements of stack b
@@ -34,6 +35,7 @@ void	sb(t_stack *b)
 	temp = b->int_list[b->top - 1];
 	b->int_list[b->top - 1] = b->int_list[b->top];
 	b->int_list[b->top] = temp;
+	write(1, "sb\n", 3);
 }
 
 // sa + sb
