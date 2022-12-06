@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 14:38:54 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/05 15:05:26 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/05 19:17:33 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	*parse_input(int argc, char **argv)
 	int	*int_list;
 
 	if (argc < 2)
-		exit(EXIT_SUCCESS);
+		exit(EXIT_FAILURE);
 	check_args(argc, argv);
 	int_list = conv_argv_to_int(argc, argv);
 	check_duplicates(int_list, (argc - 1));
