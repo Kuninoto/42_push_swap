@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   find_midpoint.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 22:31:24 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/06 02:24:38 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/06 17:34:01 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 int	find_midpoint(t_stack *stack, int chunk_start)
 {

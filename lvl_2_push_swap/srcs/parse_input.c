@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 14:38:54 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/06 01:38:59 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/06 17:19:56 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	*conv_argv_to_int(int argc, char **argv)
 	i = 0;
 	j = 1;
 	while (argv[j])
-		int_list[i++] = ft_atoi(argv[j++]);
+		int_list[i++] = ft_long_atoi(argv[j++]);
 	return (int_list);
 }
 
@@ -80,7 +80,3 @@ int	*parse_input(int argc, char **argv)
 	check_duplicates(int_list, (STACK_SIZE));
 	return (int_list);
 }
-
-/*
-	MISSING INT MAX/INT MIN CHECK
-*/
