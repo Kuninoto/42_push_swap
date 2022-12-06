@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:59:25 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/06 18:19:52 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/06 21:02:23 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	rrr(t_stack *a, t_stack *b);
 void	insertion_sort(int *int_list, int stack_size);
 
 // SPECIAL CASES
-void	special_case(t_stack *a);
+void	special_case(t_stack *a, t_stack *b);
 
 // FINDS
 int		find_midpoint(t_stack *stack, int chunk_start);
