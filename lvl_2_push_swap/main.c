@@ -3,21 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:54:26 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/05 19:12:51 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/06 02:25:04 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
-
-/*
-	find mid point
-	everything less than midpoint goes for stack b
-
-	
-*/
 
 // moves every number smaller than mid point to stack b
 void	move_smaller_top(t_stack *a, t_stack *b, int mid_point)
@@ -71,57 +64,8 @@ int	main(int argc, char **argv)
 
 
 
-	/* printf("Init a and b:\n");	
-	int i = a->top;
-	int j = b->top;
-	while (i >= 0)
-	{
-		printf("%d %d\n", a->int_list[i], b->int_list[j]);
-		if (j > 0)
-			j--;
-		i--;
-	}
-	printf("_ _\n");
-	printf("a b\n\n");
 
 
-	move_smaller_top(a, b, mid_point);
-	
-	printf("\n");
-
-	i = a->top;
-	j = b->top;
-	while (i >= 0)
-	{
-		printf("%d %d\n", a->int_list[i], b->int_list[j]);
-		if (j >= 0)
-			j--;
-		i--;
-	}
-	printf("_ _\n");
-	printf("a b\n\n");
-
-	mid_point = find_midpoint(a, 0);
-	
-	printf("mid point = %d\n", mid_point);
-
-
-	printf("a and b AFTER first move:\n");	
-	i = a->top;
-	j = b->top;
-	while (i >= 0)
-	{
-		printf("%d %d\n", a->int_list[i], b->int_list[j]);
-		if (j >= 0)
-			j--;
-		i--;
-	}
-	printf("_ _\n");
-	printf("a b\n\n");
-
-
-	move_smaller_top(a, b, mid_point);
-	 */
 	printf("\n");
 
 	int i = a->top;
@@ -143,6 +87,8 @@ int	main(int argc, char **argv)
 	free(b);
 	return (EXIT_SUCCESS);
 }
+
+// 2 3 5 12 10 6 9 7 4 1 8 11
 
 /*
 	TEST WITH NEGATIVE INPUT
