@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:54:26 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/06 18:20:02 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/06 21:42:33 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ int	main(int argc, char **argv)
 	if (isordered(a))
 		free_stacks(a, b);
 	if (a->stack_size == 3)
-		special_case(a);
+		special_case(a, b);
+	if (a->int_list[a->top] > a->int_list[a->top - 1])
+		sa(a);
 	while (a->top > 1)
 	{
 		mid_point = find_midpoint(a, 0);	
@@ -74,6 +76,17 @@ int	main(int argc, char **argv)
 }
 
 // 2 3 5 12 10 6 9 7 4 1 8 11
+
+// 2 1 3 6 5 8
+// sa
+// 1 2 3 6 5 8
+// pb pb pb
+// 6 5 8 | 1 2 3
+// sa
+// 5 6 8 | 3 2 1
+// pa pa pa
+// 1 2 3 5 6 8 
+
 
 /* printf("Init a and b:\n");
 	
