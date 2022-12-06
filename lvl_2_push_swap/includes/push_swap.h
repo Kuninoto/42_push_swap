@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:59:25 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/05 14:45:32 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/06 18:19:52 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	push(t_stack *stack, int value);
 int		pop(t_stack *stack);
 
 // INSTRUCTIONS
-
 // SWAP
 void	sa(t_stack *a);
 void	sb(t_stack *b);
@@ -54,7 +53,22 @@ void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 
-int		find_midpoint(t_stack *stack, int chunk_start);
 void	insertion_sort(int *int_list, int stack_size);
+
+// SPECIAL CASES
+void	special_case(t_stack *a);
+
+// FINDS
+int		find_midpoint(t_stack *stack, int chunk_start);
+int		find_maxpoint(t_stack *stack);
+
+// MOVES
+void	move_smaller_top(t_stack *a, t_stack *b, int mid_point);
+void	move_smaller_bottom(t_stack *a, t_stack *b, int mid_point);
+void	finish_moving(t_stack *a, t_stack *b, int mid_point, int nr_chunks);
+bool	ismaxpoint_on_top_half(t_stack *b, int max_point);
+void	move_bigger_top(t_stack *b, t_stack *a, int max_point);
+
+void	free_stacks(t_stack *a, t_stack *b);
 
 #endif

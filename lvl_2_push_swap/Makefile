@@ -6,7 +6,7 @@
 #    By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 12:55:16 by nnuno-ca          #+#    #+#              #
-#    Updated: 2022/12/05 14:45:38 by nnuno-ca         ###   ########.fr        #
+#    Updated: 2022/12/06 17:54:52 by nnuno-ca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,16 @@ NAME = push_swap
 
 SRCS = srcs/handle_error.c\
 	   srcs/stack_utils.c\
-	   srcs/instructions.c\
-	   srcs/instructions_2.c\
+	   srcs/instructions/instructions.c\
+	   srcs/instructions/instructions_2.c\
 	   srcs/initializers.c\
 	   srcs/parse_input.c\
-	   srcs/find_midpoint.c\
+	   srcs/special_case.c\
+	   srcs/finds/find_midpoint.c\
+	   srcs/finds/find_maxpoint.c\
+	   srcs/moves/moves.c\
 	   srcs/insertion_sort.c\
+	   srcs/free_stacks.c\
 	   main.c
 OBJS = $(SRCS:.c=.o)
 

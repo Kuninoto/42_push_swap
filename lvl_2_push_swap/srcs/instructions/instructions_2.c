@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   instructions_2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 17:53:35 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/06 02:16:04 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/06 17:39:07 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ra(t_stack *a)
 {
