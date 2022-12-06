@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 19:39:38 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/02 14:13:21 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/05 19:07:06 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ bool	isempty(t_stack *stack)
 
 bool	isfull(t_stack *stack)
 {
-	if (stack->top == stack->stack_size)
-		return true;
+	if (stack->top == (stack->stack_size - 1))
+		return (true);
 	else
-		return false;
+		return (false);
 }
 
 void	push(t_stack *stack, int value)
@@ -36,12 +36,12 @@ void	push(t_stack *stack, int value)
 		stack->int_list[stack->top] = value;
 	}
 	else 
-		return;
+		return ;	
 }
 
 int		pop(t_stack *stack)
 {
-	int		popped_value;
+	int	popped_value;
 
 	if (!isempty(stack))
 	{
@@ -50,6 +50,6 @@ int		pop(t_stack *stack)
 		return (popped_value);
 	}
 	else
-		ft_printf("Can't pop from an empty stack\n");
+		write(1, "Can't pop from an empty stack\n", 31);
 	exit(EXIT_FAILURE);
 }

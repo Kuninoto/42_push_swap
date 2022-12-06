@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initializers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 01:42:19 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/05 01:42:41 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/05 19:11:29 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_stack *init_b(int arr_len)
 	t_stack	*b;
 
 	b = malloc(sizeof(t_stack));
-	if (b == NULL)
+	if (!b)
 		handle_error(NULL);
 	b->stack_size = arr_len;
 	b->int_list = malloc(arr_len * sizeof(int));
@@ -31,7 +31,7 @@ t_stack *init_a(int *int_arr, int arr_len)
 	int		i;
 	
 	a = malloc(sizeof(t_stack));
-	if (a == NULL)
+	if (!a)
 		handle_error(NULL);
 	a->stack_size = arr_len;
 	a->int_list = malloc(arr_len * sizeof(int));
