@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+         #
+#    By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 12:55:16 by nnuno-ca          #+#    #+#              #
-#    Updated: 2022/12/06 17:54:52 by nnuno-ca         ###   ########.fr        #
+#    Updated: 2022/12/07 01:33:12 by nnuno-ca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,13 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIBFT = ./libft/libft.a
 RM = rm -rf
-NAME = push_swap
 
-SRCS = srcs/handle_error.c\
-	   srcs/stack_utils.c\
+# PUSH_SWAP ---------------------------------------------
+NAME = push_swap
+SRCS = srcs/utils/handle_error.c\
+	   srcs/utils/stack_utils.c\
+	   srcs/utils/free_stacks.c\
+	   srcs/utils/insertion_sort.c\
 	   srcs/instructions/instructions.c\
 	   srcs/instructions/instructions_2.c\
 	   srcs/initializers.c\
@@ -26,10 +29,20 @@ SRCS = srcs/handle_error.c\
 	   srcs/finds/find_midpoint.c\
 	   srcs/finds/find_maxpoint.c\
 	   srcs/moves/moves.c\
-	   srcs/insertion_sort.c\
-	   srcs/free_stacks.c\
 	   main.c
 OBJS = $(SRCS:.c=.o)
+
+# CHECKER ------------------------------------------------
+BONUS_NAME = checker
+BONUS_SRCS = bonus/srcs/utils/handle_error.c\
+			 bonus/srcs/utils/stack/stack_utils.c\
+			 bonus/srcs/utils/stack/free_stacks.c\
+			 bonus/srcs/instructions/instructions.c\
+			 bonus/srcs/instructions/instructions_2.c\
+			 bonus/srcs/parse_input.c\
+			 bonus/srcs/initializers.c\
+			 bonus/main.c
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 all: $(NAME)
 
@@ -38,12 +51,18 @@ $(LIBFT):
 
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o push_swap
+
+bonus: $(BONUS_NAME)
+
+$(BONUS_NAME): $(BONUS_OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) -o checker
+
 clean:
 	$(MAKE) clean -C ./libft
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS)
 fclean: clean
 	$(MAKE) fclean -C ./libft
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(BONUS_NAME)
 re: fclean all
 
 .SILENT:

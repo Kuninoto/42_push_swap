@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   free_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 17:40:58 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/06 21:30:14 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/07 01:33:42 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../../includes/checker.h"
 
 void	free_stacks(t_stack *a, t_stack *b)
 {
