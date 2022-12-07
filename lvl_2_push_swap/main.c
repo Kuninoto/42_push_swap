@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:54:26 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/06 21:42:33 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/07 18:52:15 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,50 +28,48 @@ bool	isordered(t_stack *a)
 
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack	a;
+	t_stack	b;
 	int		chunks;
 	int		mid_point;
-	int		max_point;
 
-	a = init_a(parse_input(argc, argv), (STACK_SIZE));
-	b = init_b(STACK_SIZE);
+	a = init_a(argc - 1);
+	b = init_b(argc - 1);
+	fill_a(&a, parse_input(argc, argv), (argc - 1));
+ 
 	chunks = 1;
-	if (isordered(a))
-		free_stacks(a, b);
-	if (a->stack_size == 3)
-		special_case(a, b);
-	if (a->int_list[a->top] > a->int_list[a->top - 1])
-		sa(a);
-	while (a->top > 1)
+	if (isordered(&a))
 	{
-		mid_point = find_midpoint(a, 0);	
-		move_smaller_top(a, b, mid_point);
-		move_smaller_bottom(a, b, mid_point);
-		finish_moving(a, b, mid_point, chunks++);
+		free_int_arrays(&a, &b);
+		exit(EXIT_SUCCESS);
 	}
-	if (a->int_list[a->top] > a->int_list[a->top - 1])
-		sa(a);
-	while (b->top != -1)
+	if (a.stack_size == 3)
+		special_case(&a, &b);
+	if (a.int_list[a.top] > a.int_list[a.top - 1])
+		sa(&a);
+	while (a.top > 1)
 	{
-		max_point = find_maxpoint(b);
-		move_bigger_top(b, a, max_point);
+		mid_point = find_midpoint(&a, 0);	
+		move_smaller_top(&a, &b, mid_point);
+		move_smaller_bottom(&a, &b, mid_point);
+		finish_moving(&a, &b, mid_point, chunks++);
 	}
-
-/* printf("\n");
-
-	int i = a->top;
+	if (a.int_list[a.top] > a.int_list[a.top - 1])
+		sa(&a);
+	while (b.top != -1)
+		move_bigger_top(&b, &a, find_maxpoint(&b));
+/* 
+	int i = a.top;
 	while (i >= 0)
 	{
-		printf("%d\n", a->int_list[i]);
+		printf("%d\n", a.int_list[i]);
 		if (i >= 0)
 			i--;
 	}
 	printf("_ _\n");
 	printf("a b\n\n");
  */
-
-	free_stacks(a, b);
+	free_int_arrays(&a, &b);
 	return (EXIT_SUCCESS);
 }
 
@@ -86,6 +84,16 @@ int	main(int argc, char **argv)
 // 5 6 8 | 3 2 1
 // pa pa pa
 // 1 2 3 5 6 8 
+
+/* int i = a.top;
+	while (i >= 0)
+	{
+		printf("%d\n", a.int_list[i]);
+		if (i >= 0)
+			i--;
+	}
+	printf("_ _\n");
+	printf("a b\n\n"); */
 
 
 /* printf("Init a and b:\n");

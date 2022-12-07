@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   instructions_2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 17:53:35 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/07 01:24:33 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/07 22:03:38 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	ra(t_stack *a)
 		i--;
 	}
 	a->int_list[0] = save_first;
-	write(1, "ra\n", 3);
 }
 
 void	rb(t_stack *b)
@@ -45,7 +44,6 @@ void	rb(t_stack *b)
 		i--;
 	}
 	b->int_list[0] = save_first;
-	write(1, "rb\n", 3);
 }
 
 void	rr(t_stack *a, t_stack *b)
@@ -69,7 +67,6 @@ void	rra(t_stack *a)
 		i++;
 	}
 	a->int_list[a->top] = save_last;
-	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack *b)
@@ -87,7 +84,6 @@ void	rrb(t_stack *b)
 		i++;
 	}
 	b->int_list[b->top] = save_last;
-	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack *a, t_stack *b)

@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 17:44:56 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/06 21:20:45 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/07 15:25:08 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void	special_case(t_stack *a, t_stack *b)
 		write(1, "rra\n", 4);
 	else if ((a->int_list[a->top] < a->int_list[0]))
 		write(1, "ra\n", 3);
-	free_stacks(a, b);
+	free_int_arrays(a, b);
 	exit(EXIT_SUCCESS);
 }
