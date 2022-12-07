@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+         #
+#    By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 12:55:16 by nnuno-ca          #+#    #+#              #
-#    Updated: 2022/12/07 01:33:12 by nnuno-ca         ###   ########.fr        #
+#    Updated: 2022/12/07 15:43:32 by nnuno-ca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,12 @@ RM = rm -rf
 # PUSH_SWAP ---------------------------------------------
 NAME = push_swap
 SRCS = srcs/utils/handle_error.c\
-	   srcs/utils/stack_utils.c\
-	   srcs/utils/free_stacks.c\
+	   srcs/utils/stack/stack_utils.c\
+	   srcs/utils/stack/fill_a.c\
+	   srcs/utils/stack/free_int_arrays.c\
 	   srcs/utils/insertion_sort.c\
 	   srcs/instructions/instructions.c\
 	   srcs/instructions/instructions_2.c\
-	   srcs/initializers.c\
 	   srcs/parse_input.c\
 	   srcs/special_case.c\
 	   srcs/finds/find_midpoint.c\
@@ -36,11 +36,12 @@ OBJS = $(SRCS:.c=.o)
 BONUS_NAME = checker
 BONUS_SRCS = bonus/srcs/utils/handle_error.c\
 			 bonus/srcs/utils/stack/stack_utils.c\
+			 bonus/srcs/utils/stack/fill_a.c\
 			 bonus/srcs/utils/stack/free_stacks.c\
+			 bonus/srcs/utils/vector/vector_utils.c\
 			 bonus/srcs/instructions/instructions.c\
 			 bonus/srcs/instructions/instructions_2.c\
 			 bonus/srcs/parse_input.c\
-			 bonus/srcs/initializers.c\
 			 bonus/main.c
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 

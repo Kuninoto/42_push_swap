@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 14:38:54 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/07 01:23:44 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/07 15:33:48 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ void	check_duplicates(int *int_list, int arr_len)
 	}
 }
 
-//converts all number strs provided to integers
+// Converts all number strs provided to integers
 int	*conv_argv_to_int(int argc, char **argv)
 {
 	int	*int_list;
 	int	i;
 	int	j;
 
-	int_list = malloc((STACK_SIZE) * sizeof(int));
+	int_list = malloc((argc - 1) * sizeof(int));
 	if (!int_list)
 		handle_error();
 	i = 0;
@@ -50,7 +50,7 @@ int	*conv_argv_to_int(int argc, char **argv)
 	return (int_list);
 }
 
-//checks whether all characters provided are digits
+// Checks whether all characters provided are digits
 void	check_args(int argc, char **argv)
 {
 	int	i;
@@ -78,6 +78,6 @@ int	*parse_input(int argc, char **argv)
 
 	check_args(argc, argv);
 	int_list = conv_argv_to_int(argc, argv);
-	check_duplicates(int_list, (STACK_SIZE));
+	check_duplicates(int_list, (argc - 1));
 	return (int_list);
 }

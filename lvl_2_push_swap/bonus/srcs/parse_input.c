@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 14:38:54 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/07 03:35:14 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/07 15:40:28 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	*conv_argv_to_int(int argc, char **argv)
 	int	i;
 	int	j;
 
-	int_list = malloc((STACK_SIZE) * sizeof(int));
+	int_list = malloc((argc - 1) * sizeof(int));
 	if (!int_list)
 		handle_error();
 	i = 0;
@@ -77,6 +77,6 @@ int	*parse_input(int argc, char **argv)
 
 	check_args(argc, argv);
 	int_list = conv_argv_to_int(argc, argv);
-	check_duplicates(int_list, (STACK_SIZE));
+	check_duplicates(int_list, (argc - 1));
 	return (int_list);
 }
