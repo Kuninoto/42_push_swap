@@ -6,13 +6,13 @@
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 01:34:52 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/07 03:21:00 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/07 03:25:05 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/checker.h"
 
-t_vector	*vec_new()
+t_vector	*vec_new(void)
 {
 	t_vector	*new_vector;
 

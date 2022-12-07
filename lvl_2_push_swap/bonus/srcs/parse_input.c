@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 14:38:54 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/07 01:28:10 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/07 03:35:14 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,8 @@ void	check_args(int argc, char **argv)
 		j = -1;
 		while (argv[i][++j])
 		{
-			if ((!ft_isdigit(argv[i][j]) && argv[i][j] != '-') || 
-				(argv[i][j] == '-' && !ft_isdigit(argv[i][j + 1]))
-			   )
+			if ((!ft_isdigit(argv[i][j]) && argv[i][j] != '-') ||
+				(argv[i][j] == '-' && !ft_isdigit(argv[i][j + 1])))
 				handle_error();
 		}
 	}

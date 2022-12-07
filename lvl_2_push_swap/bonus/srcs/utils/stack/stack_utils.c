@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 19:39:38 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/07 01:33:25 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/07 03:39:27 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ bool	isempty(t_stack *stack)
 		return (true);
 	else
 		return (false);
-} 
+}
 
 bool	isfull(t_stack *stack)
 {
@@ -34,12 +34,10 @@ void	push(t_stack *stack, int value)
 	{
 		stack->top++;
 		stack->int_list[stack->top] = value;
-	}
-	else 
-		return ;	
+	}	
 }
 
-int		pop(t_stack *stack)
+int	pop(t_stack *stack)
 {
 	int	popped_value;
 
