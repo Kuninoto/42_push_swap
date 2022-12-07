@@ -6,11 +6,11 @@
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 14:38:54 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/07 01:23:44 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/07 01:28:10 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/checker.h"
 
 void	check_duplicates(int *int_list, int arr_len)
 {
@@ -33,7 +33,7 @@ void	check_duplicates(int *int_list, int arr_len)
 	}
 }
 
-//converts all number strs provided to integers
+// Converts all number strings provided to integers
 int	*conv_argv_to_int(int argc, char **argv)
 {
 	int	*int_list;
@@ -50,7 +50,7 @@ int	*conv_argv_to_int(int argc, char **argv)
 	return (int_list);
 }
 
-//checks whether all characters provided are digits
+// Checks if all characters provided are digits
 void	check_args(int argc, char **argv)
 {
 	int	i;

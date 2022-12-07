@@ -6,11 +6,11 @@
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 01:42:19 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/07 01:26:04 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/07 01:26:44 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/checker.h"
 
 t_stack *init_b(int arr_len)
 {

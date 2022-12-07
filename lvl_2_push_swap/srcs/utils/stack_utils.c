@@ -6,11 +6,11 @@
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 19:39:38 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/06 02:26:13 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/07 01:15:57 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 bool	isempty(t_stack *stack)
 {
