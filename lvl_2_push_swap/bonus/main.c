@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:54:26 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 04:02:56 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/08 16:21:23 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,27 @@ void	execute_instructions(t_stack *a, t_stack *b, char *instruction, t_vector *v
 	size_t	len; 
 	
 	len = ft_strlen(instruction);
-	if (ft_strncmp(instruction, "sa", len) == 0)
+	if (ft_strncmp(instruction, "sa", len - 1) == 0)
 		sa(a);
-	else if (ft_strncmp(instruction, "sb", len) == 0)
+	else if (ft_strncmp(instruction, "sb", len - 1) == 0)
 		sb(b);
-	else if (ft_strncmp(instruction, "ss", len) == 0)
+	else if (ft_strncmp(instruction, "ss", len - 1) == 0)
 		ss(a, b);
-	else if (ft_strncmp(instruction, "pa", len) == 0)
+	else if (ft_strncmp(instruction, "pa", len - 1) == 0)
 		pa(a, b);
-	else if (ft_strncmp(instruction, "pb", len) == 0)
+	else if (ft_strncmp(instruction, "pb", len - 1) == 0)
 		pb(a, b);
-	else if (ft_strncmp(instruction, "rra", len) == 0)
+	else if (ft_strncmp(instruction, "rra", len - 1) == 0)
 		rra(a);
-	else if (ft_strncmp(instruction, "rrb", len) == 0)
+	else if (ft_strncmp(instruction, "rrb", len - 1) == 0)
 		rrb(b);
-	else if (ft_strncmp(instruction, "rrr", len) == 0)
+	else if (ft_strncmp(instruction, "rrr", len - 1) == 0)
 		rrr(a, b);
-	else if (ft_strncmp(instruction, "ra", len) == 0)
+	else if (ft_strncmp(instruction, "ra", len - 1) == 0)
 		ra(a);
-	else if (ft_strncmp(instruction, "rb", len) == 0)
+	else if (ft_strncmp(instruction, "rb", len - 1) == 0)
 		rb(b);
-	else if (ft_strncmp(instruction, "rr", len) == 0)
+	else if (ft_strncmp(instruction, "rr", len - 1) == 0)
 		rr(a, b);
 	else
 	{
@@ -68,7 +68,7 @@ void	get_instructions(t_vector *vector)
 	while (true)
 	{
 		new_instruction = get_next_line(STDIN_FILENO);
-		if (new_instruction == NULL || new_instruction[0] == EOF)
+		if (new_instruction == NULL)
 			break ;
 		vec_push(vector, new_instruction);
 	}
