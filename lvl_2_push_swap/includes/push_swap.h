@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:59:25 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 01:29:00 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/08 01:39:10 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ int		pop(t_stack *stack);
 // SWAP ----------------------------------------------
 
 // Swaps the first 2 elements of stack a
-void	sa(t_stack *a);
+void	sa(t_stack *a, bool print_instruction);
 // Swaps the first 2 elements of stack b
-void	sb(t_stack *b);
+void	sb(t_stack *b, bool print_instruction);
 // Swaps the first 2 elements of stack a and b
 void	ss(t_stack *a, t_stack *b);
 
@@ -80,15 +80,15 @@ void	pb(t_stack *a, t_stack *b);
 // ROTATE ---------------------------------
 
 // Shifts up all elements on stack a by 1
-void	ra(t_stack *a);
+void	ra(t_stack *a, bool print_instruction);
 // Shifts up all elements on stack b by 1
-void	rb(t_stack *b);
+void	rb(t_stack *b, bool print_instruction);
 // ra + rb
 void	rr(t_stack *a, t_stack *b);
 // Shifts down all elements on stack a by 1
-void	rra(t_stack *a);
+void	rra(t_stack *a, bool print_instruction);
 // Shifts down all elements on stack b by 1
-void	rrb(t_stack *b);
+void	rrb(t_stack *b, bool print_instruction);
 // ra + rb
 void	rrr(t_stack *a, t_stack *b);
 

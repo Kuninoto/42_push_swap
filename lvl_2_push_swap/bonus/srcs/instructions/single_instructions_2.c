@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions_2.c                                   :+:      :+:    :+:   */
+/*   single_instructions_2.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 17:53:35 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 01:02:26 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2022/12/08 01:50:20 by nnuno-ca          #+#    #+#             */
+/*   Updated: 2022/12/08 01:51:26 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../includes/checker.h"
 
 void	ra(t_stack *a)
 {
@@ -27,7 +27,6 @@ void	ra(t_stack *a)
 		i--;
 	}
 	a->int_list[0] = save_first;
-	write(1, "ra\n", 3);
 }
 
 void	rb(t_stack *b)
@@ -45,13 +44,6 @@ void	rb(t_stack *b)
 		i--;
 	}
 	b->int_list[0] = save_first;
-	write(1, "rb\n", 3);
-}
-
-void	rr(t_stack *a, t_stack *b)
-{
-	ra(a);
-	rb(b);
 }
 
 void	rra(t_stack *a)
@@ -69,7 +61,6 @@ void	rra(t_stack *a)
 		i++;
 	}
 	a->int_list[a->top] = save_last;
-	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack *b)
@@ -87,11 +78,4 @@ void	rrb(t_stack *b)
 		i++;
 	}
 	b->int_list[b->top] = save_last;
-	write(1, "rrb\n", 4);
-}
-
-void	rrr(t_stack *a, t_stack *b)
-{
-	rra(a);
-	rrb(b);
 }

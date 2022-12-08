@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:54:26 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 01:20:10 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/08 02:32:45 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,30 +26,39 @@ bool	isordered(t_stack *a)
 	return (true);
 }
 
-void	execute_instructions(t_stack *a, t_stack *b, char *instruction)
+void	execute_instructions(t_stack *a, t_stack *b, char *instruction, t_vector *vector)
 {
-	if (ft_strncmp(instruction, "sa", 2) == 0)
+	size_t	len; 
+	
+	len = ft_strlen(instruction);
+	if (ft_strncmp(instruction, "sa", len) == 0)
 		sa(a);
-	else if (ft_strncmp(instruction, "sb", 2) == 0)
+	else if (ft_strncmp(instruction, "sb", len) == 0)
 		sb(b);
-	else if (ft_strncmp(instruction, "ss", 2) == 0)
+	else if (ft_strncmp(instruction, "ss", len) == 0)
 		ss(a, b);
-	else if (ft_strncmp(instruction, "pa", 2) == 0)
+	else if (ft_strncmp(instruction, "pa", len) == 0)
 		pa(a, b);
-	else if (ft_strncmp(instruction, "pb", 2) == 0)
+	else if (ft_strncmp(instruction, "pb", len) == 0)
 		pb(a, b);
-	else if (ft_strncmp(instruction, "rra", 3) == 0)
+	else if (ft_strncmp(instruction, "rra", len) == 0)
 		rra(a);
-	else if (ft_strncmp(instruction, "rrb", 3) == 0)
+	else if (ft_strncmp(instruction, "rrb", len) == 0)
 		rrb(b);
-	else if (ft_strncmp(instruction, "rrr", 3) == 0)
+	else if (ft_strncmp(instruction, "rrr", len) == 0)
 		rrr(a, b);
-	else if (ft_strncmp(instruction, "ra", 2) == 0)
+	else if (ft_strncmp(instruction, "ra", len) == 0)
 		ra(a);
-	else if (ft_strncmp(instruction, "rb", 2) == 0)
+	else if (ft_strncmp(instruction, "rb", len) == 0)
 		rb(b);
-	else if (ft_strncmp(instruction, "rr", 2) == 0)
+	else if (ft_strncmp(instruction, "rr", len) == 0)
 		rr(a, b);
+	else
+	{
+		free_arrays(a, b);
+		free_vec(vector);
+		handle_error();
+	}
 }
 
 void	get_instructions(t_vector *vector)
@@ -74,12 +83,12 @@ int	main(int argc, char **argv)
 
 	a = init_a(argc - 1);
 	b = init_b(argc - 1);
+	fill_a(&a, parse_input(argc, argv, &a, &b), (argc - 1));
 	instructions_vec = vec_new();
-	fill_a(&a, parse_input(argc, argv), (argc - 1));
 	get_instructions(&instructions_vec);
 	i = 0;
 	while (i < instructions_vec.count)
-		execute_instructions(&a, &b, instructions_vec.storage[i++]);
+		execute_instructions(&a, &b, instructions_vec.storage[i++], &instructions_vec);
 	if (isordered(&a))
 		write(1, "OK\n", 3);
 	else
