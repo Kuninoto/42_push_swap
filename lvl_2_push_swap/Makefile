@@ -6,7 +6,7 @@
 #    By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 12:55:16 by nnuno-ca          #+#    #+#              #
-#    Updated: 2022/12/08 00:48:06 by nnuno-ca         ###   ########.fr        #
+#    Updated: 2022/12/08 01:48:57 by nnuno-ca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,9 @@ SRCS = srcs/utils/handle_error.c\
 	   srcs/utils/stack/fill_a.c\
 	   srcs/utils/stack/free_arrays.c\
 	   srcs/utils/insertion_sort.c\
-	   srcs/instructions/instructions.c\
-	   srcs/instructions/instructions_2.c\
+	   srcs/instructions/single_instructions.c\
+	   srcs/instructions/single_instructions_2.c\
+	   srcs/instructions/double_instructions.c\
 	   srcs/parse_input.c\
 	   srcs/special_case.c\
 	   srcs/finds/find_midpoint.c\
@@ -39,8 +40,9 @@ BONUS_SRCS = bonus/srcs/utils/handle_error.c\
 			 bonus/srcs/utils/stack/fill_a.c\
 			 bonus/srcs/utils/stack/free_arrays.c\
 			 bonus/srcs/utils/vector/vector_utils.c\
-			 bonus/srcs/instructions/instructions.c\
-			 bonus/srcs/instructions/instructions_2.c\
+			 bonus/srcs/instructions/single_instructions.c\
+	   		 bonus/srcs/instructions/single_instructions_2.c\
+			 bonus/srcs/instructions/double_instructions.c\
 			 bonus/srcs/parse_input.c\
 			 bonus/main.c
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)

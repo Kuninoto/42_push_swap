@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 01:12:58 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 00:45:41 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/08 02:09:30 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define CHECKER_H
 
 # include "../../libft/libft.h"
-
-int		*parse_input(int argc, char **argv);
 
 // STACK ----------------------------------
 
@@ -46,6 +44,8 @@ static inline t_stack	init_b(int arr_len)
 		.top = -1
 	});
 }
+
+int		*parse_input(int argc, char **argv, t_stack *a, t_stack *b);
 
 // STACK UTILS ----------------------------
 

@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 17:32:52 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 01:14:36 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/08 01:55:29 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	move_smaller_bottom(t_stack *a, t_stack *b, int mid_point)
 {
 	while (a->int_list[0] < mid_point)
 	{
-		rra(a);
+		rra(a, true);
 		pb(a, b);
 	}
 }
@@ -34,7 +34,7 @@ void	finish_moving(t_stack *a, t_stack *b, int mid_point, int nr_chunks)
 		if (a->int_list[a->top] < mid_point)
 			pb(a, b);
 		else
-			ra(a);
+			ra(a, true);
 	}
 }
 
@@ -57,13 +57,13 @@ void	move_bigger_top(t_stack *b, t_stack *a, int max_point)
 	if (ismaxpoint_on_top_half(b, max_point))
 	{
 		while (b->int_list[b->top] < max_point)
-			rb(b);
+			rb(b, true);
 		pa(a, b);
 	}
 	else
 	{
 		while (b->int_list[b->top] < max_point)
-			rrb(b);
+			rrb(b, true);
 		pa(a, b);
 	}
 }

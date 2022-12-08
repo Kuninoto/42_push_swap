@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions_2.c                                   :+:      :+:    :+:   */
+/*   single_instructions_2.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 17:53:35 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/07 22:03:38 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2022/12/08 01:46:51 by nnuno-ca          #+#    #+#             */
+/*   Updated: 2022/12/08 01:47:06 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/checker.h"
+#include "../../includes/push_swap.h"
 
-void	ra(t_stack *a)
+void	ra(t_stack *a, bool print_instruction)
 {
 	int	save_first;
 	int	i;
@@ -27,9 +27,11 @@ void	ra(t_stack *a)
 		i--;
 	}
 	a->int_list[0] = save_first;
+	if (print_instruction)
+		write(STDOUT_FILENO, "ra\n", 3);
 }
 
-void	rb(t_stack *b)
+void	rb(t_stack *b, bool print_instruction)
 {
 	int	save_first;
 	int	i;
@@ -44,50 +46,6 @@ void	rb(t_stack *b)
 		i--;
 	}
 	b->int_list[0] = save_first;
-}
-
-void	rr(t_stack *a, t_stack *b)
-{
-	ra(a);
-	rb(b);
-}
-
-void	rra(t_stack *a)
-{
-	int	save_last;
-	int	i;
-
-	if (isempty(a))
-		return ;
-	save_last = a->int_list[0];
-	i = 0;
-	while (i < a->top)
-	{
-		a->int_list[i] = a->int_list[i + 1];
-		i++;
-	}
-	a->int_list[a->top] = save_last;
-}
-
-void	rrb(t_stack *b)
-{
-	int	save_last;
-	int	i;
-
-	if (isempty(b))
-		return ;
-	save_last = b->int_list[0];
-	i = 0;
-	while (i < b->top)
-	{
-		b->int_list[i] = b->int_list[i + 1];
-		i++;
-	}
-	b->int_list[b->top] = save_last;
-}
-
-void	rrr(t_stack *a, t_stack *b)
-{
-	rra(a);
-	rrb(b);
+	if (print_instruction)
+		write(STDOUT_FILENO, "rb\n", 3);
 }

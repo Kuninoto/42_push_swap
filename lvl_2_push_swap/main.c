@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:54:26 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 01:27:12 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/08 01:55:01 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main(int argc, char **argv)
 	if (a.stack_size == 3)
 		special_case(&a, &b);
 	if (a.int_list[a.top] > a.int_list[a.top - 1])
-		sa(&a);
+		sa(&a, true);
 	while (a.top > 1)
 	{
 		mid_point = find_midpoint(&a, 0);
@@ -54,7 +54,7 @@ int	main(int argc, char **argv)
 		finish_moving(&a, &b, mid_point, chunks++);
 	}
 	if (a.int_list[a.top] > a.int_list[a.top - 1])
-		sa(&a);
+		sa(&a, true);
 	while (b.top != -1)
 		move_bigger_top(&b, &a, find_maxpoint(&b));
 	free_arrays(&a, &b);
