@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+         #
+#    By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 12:55:16 by nnuno-ca          #+#    #+#              #
-#    Updated: 2022/12/08 01:48:57 by nnuno-ca         ###   ########.fr        #
+#    Updated: 2022/12/08 17:03:57 by nnuno-ca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ BONUS_SRCS = bonus/srcs/utils/handle_error.c\
 			 bonus/srcs/utils/stack/stack_utils.c\
 			 bonus/srcs/utils/stack/fill_a.c\
 			 bonus/srcs/utils/stack/free_arrays.c\
-			 bonus/srcs/utils/vector/vector_utils.c\
 			 bonus/srcs/instructions/single_instructions.c\
 	   		 bonus/srcs/instructions/single_instructions_2.c\
 			 bonus/srcs/instructions/double_instructions.c\
