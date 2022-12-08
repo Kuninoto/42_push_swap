@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_long_atoi.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 17:04:24 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/06 17:11:58 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/08 01:23:29 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	ft_long_atoi(const char *str)
 	int		signal;
 	int		i;
 
-	
 	res = 0;
 	signal = 1;
 	i = 0;
@@ -36,9 +35,6 @@ int	ft_long_atoi(const char *str)
 		i++;
 	}
 	if (res > INT_MAX || res < INT_MIN)
-	{
-		write(1, "Error\n", 6);
-		exit(EXIT_FAILURE);
-	}
+		handle_error();
 	return ((int)res * signal);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:54:26 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/07 18:52:15 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/08 01:27:12 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,11 @@ int	main(int argc, char **argv)
 
 	a = init_a(argc - 1);
 	b = init_b(argc - 1);
-	fill_a(&a, parse_input(argc, argv), (argc - 1));
- 
+	fill_a(&a, parse_input(argc, argv, &a, &b), (argc - 1));
 	chunks = 1;
 	if (isordered(&a))
 	{
-		free_int_arrays(&a, &b);
+		free_arrays(&a, &b);
 		exit(EXIT_SUCCESS);
 	}
 	if (a.stack_size == 3)
@@ -49,7 +48,7 @@ int	main(int argc, char **argv)
 		sa(&a);
 	while (a.top > 1)
 	{
-		mid_point = find_midpoint(&a, 0);	
+		mid_point = find_midpoint(&a, 0);
 		move_smaller_top(&a, &b, mid_point);
 		move_smaller_bottom(&a, &b, mid_point);
 		finish_moving(&a, &b, mid_point, chunks++);
@@ -58,32 +57,11 @@ int	main(int argc, char **argv)
 		sa(&a);
 	while (b.top != -1)
 		move_bigger_top(&b, &a, find_maxpoint(&b));
-/* 
-	int i = a.top;
-	while (i >= 0)
-	{
-		printf("%d\n", a.int_list[i]);
-		if (i >= 0)
-			i--;
-	}
-	printf("_ _\n");
-	printf("a b\n\n");
- */
-	free_int_arrays(&a, &b);
+	free_arrays(&a, &b);
 	return (EXIT_SUCCESS);
 }
 
 // 2 3 5 12 10 6 9 7 4 1 8 11
-
-// 2 1 3 6 5 8
-// sa
-// 1 2 3 6 5 8
-// pb pb pb
-// 6 5 8 | 1 2 3
-// sa
-// 5 6 8 | 3 2 1
-// pa pa pa
-// 1 2 3 5 6 8 
 
 /* int i = a.top;
 	while (i >= 0)
@@ -94,7 +72,6 @@ int	main(int argc, char **argv)
 	}
 	printf("_ _\n");
 	printf("a b\n\n"); */
-
 
 /* printf("Init a and b:\n");
 	

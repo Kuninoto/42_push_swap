@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_int_arrays.c                                  :+:      :+:    :+:   */
+/*   handle_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 17:40:58 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/07 15:24:32 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2022/11/30 13:43:34 by nnuno-ca          #+#    #+#             */
+/*   Updated: 2022/12/08 01:23:08 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/push_swap.h"
+#include "libft.h"
 
-void	free_int_arrays(t_stack *a, t_stack *b)
+void	handle_error(void)
 {
-	free(a->int_list);
-	free(b->int_list);
+	ft_putstr_fd("Error\n", 2);
+	exit(EXIT_FAILURE);
 }

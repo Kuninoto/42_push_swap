@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_maxpoint.c                                    :+:      :+:    :+:   */
+/*   free_arrays.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 15:20:27 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 00:55:21 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2022/12/06 17:40:58 by nnuno-ca          #+#    #+#             */
+/*   Updated: 2022/12/08 00:54:09 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../../includes/checker.h"
 
-int	find_maxpoint(t_stack *stack)
+void	free_arrays(t_stack *a, t_stack *b)
 {
-	int	i;
-	int	max;
-
-	i = 0;
-	max = stack->int_list[0];
-	while (i < stack->top)
-	{
-		if (max < stack->int_list[i])
-			max = stack->int_list[i];
-		i++;
-	}
-	return (max);
+	free(a->int_list);
+	free(b->int_list);
 }
