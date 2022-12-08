@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:54:26 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 02:32:45 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/08 04:02:56 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	get_instructions(t_vector *vector)
 	while (true)
 	{
 		new_instruction = get_next_line(STDIN_FILENO);
-		if (new_instruction == NULL)
+		if (new_instruction == NULL || new_instruction[0] == EOF)
 			break ;
 		vec_push(vector, new_instruction);
 	}
