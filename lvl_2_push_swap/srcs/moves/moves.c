@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 17:32:52 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/06 17:35:08 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/08 01:14:36 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-// moves every number smaller than mid point to stack b
 void	move_smaller_top(t_stack *a, t_stack *b, int mid_point)
 {
 	while (a->int_list[a->top] < mid_point)
@@ -53,7 +52,6 @@ bool	ismaxpoint_on_top_half(t_stack *b, int max_point)
 	return (false);
 }
 
-// finds b top, sends to a and reverses rb actions
 void	move_bigger_top(t_stack *b, t_stack *a, int max_point)
 {
 	if (ismaxpoint_on_top_half(b, max_point))

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:59:25 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/07 15:26:10 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/08 01:29:00 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
-
-int		*parse_input(int argc, char **argv);
 
 // STACK ----------------------------------
 
@@ -30,22 +28,24 @@ typedef struct s_stack {
 // Initializes stack a
 static inline t_stack	init_a(int arr_len)
 {
-	return ((t_stack) {
+	return ((t_stack){
 		.stack_size = arr_len,
-		.int_list = malloc(arr_len * sizeof(int)), 
+		.int_list = malloc(arr_len * sizeof(int)),
 		.top = -1
-		});
+	});
 }
 
 // Initializes stack b
 static inline t_stack	init_b(int arr_len)
 {
-	return ((t_stack) {
+	return ((t_stack){
 		.stack_size = arr_len,
-		.int_list = malloc(arr_len * sizeof(int)), 
+		.int_list = malloc(arr_len * sizeof(int)),
 		.top = -1
-		});
+	});
 }
+
+int		*parse_input(int argc, char **argv, t_stack *a, t_stack *b);
 
 // STACK UTILS ---------------------------------------
 
@@ -100,6 +100,11 @@ int		find_midpoint(t_stack *stack, int chunk_start);
 int		find_maxpoint(t_stack *stack);
 
 // MOVES -------------------------------------------------------------------
+
+/* 
+Enters by the top of stack a and 
+moves every number smaller than mid_point to stack b
+*/
 void	move_smaller_top(t_stack *a, t_stack *b, int mid_point);
 void	move_smaller_bottom(t_stack *a, t_stack *b, int mid_point);
 void	finish_moving(t_stack *a, t_stack *b, int mid_point, int nr_chunks);
@@ -109,7 +114,7 @@ void	move_bigger_top(t_stack *b, t_stack *a, int max_point);
 // UTILS ----------------------------------------
 
 // Frees both integer arrays inside stack a and b
-void	free_int_arrays(t_stack *a, t_stack *b);
+void	free_arrays(t_stack *a, t_stack *b);
 // Prints an error message on stderror and exits on failure
 void	handle_error(void);
 void	insertion_sort(int *int_list, int stack_size);

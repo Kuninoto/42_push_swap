@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_midpoint.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 22:31:24 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/06 17:34:01 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/08 00:55:39 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	find_midpoint(t_stack *stack, int chunk_start)
 	sorted_arr = malloc(chunk_size * sizeof(int));
 	while ((i + chunk_start) < (stack->top + 1))
 	{
-		sorted_arr[i] = stack->int_list[i + chunk_start];			
+		sorted_arr[i] = stack->int_list[i + chunk_start];
 		i++;
 	}
 	insertion_sort(sorted_arr, chunk_size);

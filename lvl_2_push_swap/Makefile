@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+         #
+#    By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 12:55:16 by nnuno-ca          #+#    #+#              #
-#    Updated: 2022/12/07 15:43:32 by nnuno-ca         ###   ########.fr        #
+#    Updated: 2022/12/08 00:48:06 by nnuno-ca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME = push_swap
 SRCS = srcs/utils/handle_error.c\
 	   srcs/utils/stack/stack_utils.c\
 	   srcs/utils/stack/fill_a.c\
-	   srcs/utils/stack/free_int_arrays.c\
+	   srcs/utils/stack/free_arrays.c\
 	   srcs/utils/insertion_sort.c\
 	   srcs/instructions/instructions.c\
 	   srcs/instructions/instructions_2.c\
@@ -37,7 +37,7 @@ BONUS_NAME = checker
 BONUS_SRCS = bonus/srcs/utils/handle_error.c\
 			 bonus/srcs/utils/stack/stack_utils.c\
 			 bonus/srcs/utils/stack/fill_a.c\
-			 bonus/srcs/utils/stack/free_stacks.c\
+			 bonus/srcs/utils/stack/free_arrays.c\
 			 bonus/srcs/utils/vector/vector_utils.c\
 			 bonus/srcs/instructions/instructions.c\
 			 bonus/srcs/instructions/instructions_2.c\

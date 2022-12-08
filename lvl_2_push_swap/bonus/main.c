@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:54:26 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/07 21:45:54 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/08 01:20:10 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ int	main(int argc, char **argv)
 
 	a = init_a(argc - 1);
 	b = init_b(argc - 1);
-	fill_a(&a, parse_input(argc, argv), (argc - 1));
 	instructions_vec = vec_new();
+	fill_a(&a, parse_input(argc, argv), (argc - 1));
 	get_instructions(&instructions_vec);
 	i = 0;
 	while (i < instructions_vec.count)
@@ -84,7 +84,7 @@ int	main(int argc, char **argv)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-//	free_stacks(&a, &b);
+	free_arrays(&a, &b);
 	free_vec(&instructions_vec);
 	return (EXIT_SUCCESS);
 }

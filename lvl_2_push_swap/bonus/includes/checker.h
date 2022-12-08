@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 01:12:58 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/07 21:41:23 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/08 00:45:41 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,8 @@ void	rrr(t_stack *a, t_stack *b);
 
 // UTILS ----------------------------------------
 
-// Frees both integer arrays and stack structures
-void	free_stacks(t_stack *a, t_stack *b);
+// Frees integer array inside a and b  
+void	free_arrays(t_stack *a, t_stack *b);
 // Prints an error message on stderror and exits on failure
 void	handle_error(void);
 void	insertion_sort(int *int_list, int stack_size);
