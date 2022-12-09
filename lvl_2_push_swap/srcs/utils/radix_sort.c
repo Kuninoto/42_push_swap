@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 22:16:06 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/09 00:17:33 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:48:34 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	simplify_numbers(t_stack *stack, int *sorted_array)
 	int	i;
 	int	*temp;
 	int	j;
-	
+
 	i = -1;
 	temp = malloc(stack->stack_size * sizeof(int));
 	while (++i < stack->stack_size)
@@ -26,7 +26,7 @@ void	simplify_numbers(t_stack *stack, int *sorted_array)
 		while (++j < stack->stack_size)
 		{
 			if (sorted_array[i] == stack->int_list[j])
-				temp[j] = i; 
+				temp[j] = i;
 		}
 	}
 	i = -1;
@@ -51,15 +51,15 @@ int	*get_sorted_arr(t_stack *stack)
 
 void	radix_sort(t_stack *a, t_stack *b)
 {
-	int	max_num;
 	int	max_bits;
+	int	num;
 	int	i;
 	int	j;
-	int	num;
 
+	max_bits = 0;
 	simplify_numbers(a, get_sorted_arr(a));
-	max_num = find_maxpoint(a);
-	while ((max_num >> max_bits) != 0)
+	num = find_maxpoint(a);
+	while ((num >> max_bits) != 0)
 		max_bits++;
 	i = -1;
 	while (++i < max_bits)

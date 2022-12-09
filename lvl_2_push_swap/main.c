@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:54:26 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/09 00:09:38 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/09 17:42:16 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,29 @@ int	main(int argc, char **argv)
 {
 	t_stack	a;
 	t_stack	b;
-//	int		chunks;
-//	int		mid_point;
 
 	if (argc < 2)
 		exit(EXIT_FAILURE);
 	a = init_a(argc - 1);
 	fill_a(&a, argc, argv);
 	b = init_b(argc - 1);
-	radix_sort(&a, &b);
+	if (isordered(&a))
+	{
+		free_arrays(&a, &b);
+		exit(EXIT_SUCCESS);
+	}
+	if (a.stack_size == 3)
+		special_case(&a, &b);
+	else if (a.stack_size >= 200)
+		radix_sort(&a, &b);
+	else
+		midpoint_sort(&a, &b);
+	free_arrays(&a, &b);
+	return (EXIT_SUCCESS);
+}
 
-/* 	int i = a.top + 1;
+/* 	
+ 	int i = a.top + 1;
     int j = b.top + 1;
     while (i--)
     {
@@ -35,36 +47,7 @@ int	main(int argc, char **argv)
         printf("%d  %d\n", a.int_list[i], b.int_list[j]);
     }
     printf("_  _\na  b\n");
-
-	printf("%d\n", 36>>2); */
-	/* chunks = 1;
-	if (isordered(&a))
-	{
-		free_arrays(&a, &b);
-		exit(EXIT_SUCCESS);
-	}
-	if (a.stack_size == 3)
-		special_case(&a, &b);
-	if (a.stack_size >= 500)
-	{
-		
-	}
-	if (ok_sa(&a))
-		sa(&a, true);
-	while (a.top > 1)
-	{
-		mid_point = find_midpoint(&a, 0);
-		move_smaller_top(&a, &b, mid_point);
-		move_smaller_bottom(&a, &b, mid_point);
-		finish_moving(&a, &b, mid_point, chunks++);
-	}
-	if (a.int_list[a.top] > a.int_list[a.top - 1])
-		sa(&a, true);
-	while (b.top != -1)
-		move_bigger_top(&b, &a, find_maxpoint(&b)); */
-	free_arrays(&a, &b);
-	return (EXIT_SUCCESS);
-}
+*/
 
 // 2 3 5 12 10 6 9 7 4 1 8 11
 
@@ -74,122 +57,6 @@ int	main(int argc, char **argv)
 		printf("%d\n", a.int_list[i]);
 		if (i >= 0)
 			i--;
-	}
-	printf("_ _\n");
-	printf("a b\n\n"); */
-
-/* printf("Init a and b:\n");
-	
-	int i = a->top;
-	int j = b->top;
-	while (i >= 0)
-	{
-		printf("%d %d\n", a->int_list[i], b->int_list[j]);
-		if (j > 0)
-			j--;
-		i--;
-	}
-	printf("_ _\n");
-	printf("a b\n\n");
-	
-	sa(a);
-
-	printf("Exec sa:\n");
-
-	i = a->top;
-	j = b->top;
-	while (i >= 0)
-	{
-		printf("%d %d\n", a->int_list[i], b->int_list[j]);
-		if (j > 0)
-			j--;
-		i--;
-	}
-	printf("_ _\n");
-	printf("a b\n\n");
-
-	pb(a, b);
-	pb(a, b);
-	pb(a, b);
-
-	printf("Exec pb pb pb:\n");
-
-	i = a->top;
-	j = b->top;
-	while (i >= 0)
-	{
-		printf("%d %d\n", a->int_list[i], b->int_list[j]);
-		if (j > 0)
-			j--;
-		i--;
-	}
-	printf("_ _\n");
-	printf("a b\n\n");
-
-	ra(a);
-	rb(b);
-	
-	printf("Exec ra rb:\n");
-
-	i = a->top;
-	j = b->top;
-	while (i >= 0)
-	{
-		printf("%d %d\n", a->int_list[i], b->int_list[j]);
-		if (j > 0)
-			j--;
-		i--;
-	}
-	printf("_ _\n");
-	printf("a b\n\n");
-
-	rra(a);
-	rrb(b);
-	
-	printf("Exec rra rrb:\n");
-
-	i = a->top;
-	j = b->top;
-	while (i >= 0)
-	{
-		printf("%d %d\n", a->int_list[i], b->int_list[j]);
-		if (j > 0)
-			j--;
-		i--;
-	}
-	printf("_ _\n");
-	printf("a b\n\n");
-
-	sa(a);
-	
-	printf("Exec sa:\n");
-
-	i = a->top;
-	j = b->top;
-	while (i >= 0)
-	{
-		printf("%d %d\n", a->int_list[i], b->int_list[j]);
-		if (j > 0)
-			j--;
-		i--;
-	}
-	printf("_ _\n");
-	printf("a b\n\n");
-
-	pa(a, b);
-	pa(a, b);
-	pa(a, b);
-	
-	printf("Exec pa pa pa:\n");
-
-	i = a->top;
-	j = b->top;
-	while (i >= 0)
-	{
-		printf("%d %d\n", a->int_list[i], b->int_list[j]);
-		if (j > 0)
-			j--;
-		i--;
 	}
 	printf("_ _\n");
 	printf("a b\n\n"); */

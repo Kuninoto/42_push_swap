@@ -6,7 +6,7 @@
 #    By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 12:55:16 by nnuno-ca          #+#    #+#              #
-#    Updated: 2022/12/08 23:53:52 by nnuno-ca         ###   ########.fr        #
+#    Updated: 2022/12/09 19:01:45 by nnuno-ca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,7 @@ SRCS = srcs/utils/handle_error.c\
 	   srcs/instructions/ok_instructions/ok_instructions.c\
 	   srcs/instructions/ok_instructions/ok_instructions_2.c\
 	   srcs/special_case.c\
-	   srcs/finds/find_midpoint.c\
-	   srcs/finds/find_maxpoint.c\
+	   srcs/utils/midpoint_sort.c\
 	   srcs/moves/moves.c\
 	   main.c
 OBJS = $(SRCS:.c=.o)
