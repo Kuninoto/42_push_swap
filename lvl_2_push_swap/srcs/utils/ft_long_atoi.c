@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 17:04:24 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/09 19:09:50 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/09 22:27:22 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_long_atoi(const char *str, t_stack *a, int *int_array)
 		res = ((res * 10) + (str[i] - '0'));
 		i++;
 	}
-	if (res > INT_MAX || res < INT_MIN)
+	if (res > INT_MAX || res <= INT_MIN)
 	{
 		free(a->int_list);
 		free(int_array);
