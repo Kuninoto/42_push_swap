@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:59:25 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 01:39:10 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/08 23:52:36 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ typedef struct s_stack {
 	int	*int_list;
 	int	top;
 }				t_stack;
+
+# include "ok_instructions.h"
 
 // STACK INITIALIZERS ---------------------
 
@@ -45,12 +47,10 @@ static inline t_stack	init_b(int arr_len)
 	});
 }
 
-int		*parse_input(int argc, char **argv, t_stack *a, t_stack *b);
-
 // STACK UTILS ---------------------------------------
 
 // Fills stack a with input values
-void	fill_a(t_stack *a, int *int_arr, int arr_len);
+void	fill_a(t_stack *a, int argc, char **argv);
 // Checks if the stack passed as parameter is empty
 bool	isempty(t_stack *stack);
 // Checks if the stack passed as parameter is full
@@ -117,6 +117,10 @@ void	move_bigger_top(t_stack *b, t_stack *a, int max_point);
 void	free_arrays(t_stack *a, t_stack *b);
 // Prints an error message on stderror and exits on failure
 void	handle_error(void);
+// Checks if stack a is ordered
+bool	isordered(t_stack *a);
 void	insertion_sort(int *int_list, int stack_size);
+void	radix_sort(t_stack *a, t_stack *b);
+int		ft_long_atoi(const char *str);
 
 #endif
