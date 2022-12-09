@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_long_atoi.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 17:04:24 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 01:23:29 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/08 19:29:24 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/push_swap.h"
 
 int	ft_long_atoi(const char *str)
 {

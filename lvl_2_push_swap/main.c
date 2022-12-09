@@ -3,40 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:54:26 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 01:55:01 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/09 00:09:38 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-bool	isordered(t_stack *a)
-{
-	int	i;
-
-	i = 0;
-	while (i < a->top)
-	{
-		if (a->int_list[i] < a->int_list[i + 1])
-			return (false);
-		i++;
-	}
-	return (true);
-}
-
 int	main(int argc, char **argv)
 {
 	t_stack	a;
 	t_stack	b;
-	int		chunks;
-	int		mid_point;
+//	int		chunks;
+//	int		mid_point;
 
+	if (argc < 2)
+		exit(EXIT_FAILURE);
 	a = init_a(argc - 1);
+	fill_a(&a, argc, argv);
 	b = init_b(argc - 1);
-	fill_a(&a, parse_input(argc, argv, &a, &b), (argc - 1));
-	chunks = 1;
+	radix_sort(&a, &b);
+
+/* 	int i = a.top + 1;
+    int j = b.top + 1;
+    while (i--)
+    {
+        if (j >= 0)
+            j--;
+        printf("%d  %d\n", a.int_list[i], b.int_list[j]);
+    }
+    printf("_  _\na  b\n");
+
+	printf("%d\n", 36>>2); */
+	/* chunks = 1;
 	if (isordered(&a))
 	{
 		free_arrays(&a, &b);
@@ -44,7 +45,11 @@ int	main(int argc, char **argv)
 	}
 	if (a.stack_size == 3)
 		special_case(&a, &b);
-	if (a.int_list[a.top] > a.int_list[a.top - 1])
+	if (a.stack_size >= 500)
+	{
+		
+	}
+	if (ok_sa(&a))
 		sa(&a, true);
 	while (a.top > 1)
 	{
@@ -56,7 +61,7 @@ int	main(int argc, char **argv)
 	if (a.int_list[a.top] > a.int_list[a.top - 1])
 		sa(&a, true);
 	while (b.top != -1)
-		move_bigger_top(&b, &a, find_maxpoint(&b));
+		move_bigger_top(&b, &a, find_maxpoint(&b)); */
 	free_arrays(&a, &b);
 	return (EXIT_SUCCESS);
 }

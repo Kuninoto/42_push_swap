@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 01:35:12 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 01:54:07 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/08 19:08:16 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,6 @@ int			prt_hexa(unsigned int nbr, bool upper_case);
 char		*join_free(char *to_free, char *to_append);
 
 void		handle_errors(char *error_msg);
-
-int			ft_long_atoi(const char *str);
 
 void		handle_error(void);
 

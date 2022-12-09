@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:54:26 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 17:02:30 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/08 19:24:28 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ bool	isordered(t_stack *a)
 
 void	execute_instructions(t_stack *a, t_stack *b, char *instruction)
 {
-	size_t	len; 
+	size_t	len;
 
 	len = ft_strlen(instruction);
 	if (ft_strncmp(instruction, "sa", len - 1) == 0)
@@ -169,7 +169,7 @@ int	main(int argc, char **argv)
 	b = init_b(argc - 1);
 	fill_a(&a, parse_input(argc, argv, &a, &b), (argc - 1));
 	get_instructions(&a, &b);
-	if (isordered(&a))
+	if ((isordered(&a) == true) && (b.top == -1))
 		write(STDOUT_FILENO, "OK\n", 3);
 	else
 		write(STDOUT_FILENO, "KO\n", 3);
