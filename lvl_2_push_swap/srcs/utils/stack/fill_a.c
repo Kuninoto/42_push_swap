@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 00:55:53 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 21:19:49 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:27:39 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,14 @@ int	*conv_argv_to_int(t_stack *a, int argc, char **argv)
 	j = 1;
 	while (argv[j])
 	{
-		temp = ft_long_atoi(argv[j]);
+		temp = ft_long_atoi(argv[j], a, int_list);
 		if (temp == 0 && argv[j][0] != '0')
 		{
 			free(a->int_list);
 			free(int_list);
 			handle_error();
 		}
-		int_list[i++] = ft_long_atoi(argv[j++]);
+		int_list[i++] = ft_long_atoi(argv[j++], a, int_list);
 	}
 	return (int_list);
 }

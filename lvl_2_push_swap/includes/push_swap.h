@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:59:25 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 23:52:36 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:49:08 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ typedef struct s_stack {
 	int	*int_list;
 	int	top;
 }				t_stack;
-
-# include "ok_instructions.h"
 
 // STACK INITIALIZERS ---------------------
 
@@ -92,11 +90,25 @@ void	rrb(t_stack *b, bool print_instruction);
 // ra + rb
 void	rrr(t_stack *a, t_stack *b);
 
+// CHECKS ------------------------------------
+
+bool	ok_sa(t_stack *a);
+bool	ok_sb(t_stack *b);
+
+bool	ok_ra(t_stack *a);
+bool	ok_rb(t_stack *b);
+
+bool	ok_rra(t_stack *a);
+bool	ok_rrb(t_stack *b);
+
+bool	ok_ss(t_stack *a, t_stack *b);
+bool	ok_rr(t_stack *a, t_stack *b);
+bool	ok_rrr(t_stack *a, t_stack *b);
+
 // SPECIAL CASES -------------------------------------
 void	special_case(t_stack *a, t_stack *b);
 
 // FINDS ---------------------------------------------
-int		find_midpoint(t_stack *stack, int chunk_start);
 int		find_maxpoint(t_stack *stack);
 
 // MOVES -------------------------------------------------------------------
@@ -120,7 +132,8 @@ void	handle_error(void);
 // Checks if stack a is ordered
 bool	isordered(t_stack *a);
 void	insertion_sort(int *int_list, int stack_size);
+void	midpoint_sort(t_stack *a, t_stack *b);
 void	radix_sort(t_stack *a, t_stack *b);
-int		ft_long_atoi(const char *str);
+int		ft_long_atoi(const char *str, t_stack *a, int *int_array);
 
 #endif
