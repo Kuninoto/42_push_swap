@@ -100,33 +100,4 @@ void	free_arrays(t_stack *a, t_stack *b);
 void	handle_error(void);
 void	insertion_sort(int *int_list, int stack_size);
 
-// VECTOR ---------------------------------------
-
-typedef struct s_vector {
-	size_t	count;
-	size_t	capacity;
-	char	**storage;
-}				t_vector;
-
-// VECTOR UTILS ---------------------------------
-
-// Returns an empty vector with the capacity of 1
-static inline t_vector	vec_new(void)
-{
-	return ((t_vector){
-		.count = 0,
-		.capacity = 1,
-		.storage = malloc(sizeof(char *))
-	});
-}
-
-// Push an instruction to the vector
-void	vec_push(t_vector *vector, char	*instruction);
-// Pops an instruction from the vector
-char	*vec_pop(t_vector *vector);
-// Doubles vector storage capacity
-void	vec_realloc(t_vector *vector);
-// Free a vector and all its inside fields
-void	free_vec(t_vector *vector);
-
 #endif
