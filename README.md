@@ -25,9 +25,9 @@
 [push_swap en_subject](./extras/en.subject_push_swap.pdf)
 
 ## Note:
-	Although I was only able to do an algorithm that gives 90/100 in this project (i.e bonus cannot be accessed on the evaluation)
-	I've still made the bonus part because I found it interesting and quite easy. I left it on bonus folder for the record. 
-	It has a Norm error on main so that's something to take in consideration if you're a 42 student and want to get inspired.
+Although I was only able to do an algorithm that gives 90/100 in this project (i.e bonus cannot be accessed on the evaluation)
+I've still made the bonus part because I found it interesting and quite easy. I left it on bonus folder for the record. 
+It has a Norm error on main so that's something to take in consideration if you're a 42 student and want to get inspired.
 
 #### Makefile Available Targets:  
 `make` or `make all` - Makes _push_swap_   
