@@ -21,8 +21,7 @@
 
 	./push_swap <nbr> <nbr> <nbr> <nbr> ...
 
-###  Subject:
-[push_swap en_subject](./extras/en.subject_push_swap.pdf)
+###  Subject: [push_swap en_subject](./extras/en.subject_push_swap.pdf)
 
 ## Note:
 Although I was only able to do an algorithm that gives 90/100 in this project (i.e bonus cannot be accessed on the evaluation)
