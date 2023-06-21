@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/push_swap.h"
+#include "push_swap.h"
 
 bool	ok_rra(t_stack *a)
 {
-	if (isempty(a))
+	if (is_empty(a))
 		return (false);
-	if (a->int_list[0] < a->int_list[a->top])
+	if (a->storage[BOTTOM] < a->storage[a->top])
 		return (true);
 	else
 		return (false);
@@ -24,9 +24,9 @@ bool	ok_rra(t_stack *a)
 
 bool	ok_rrb(t_stack *b)
 {
-	if (isempty(b))
+	if (is_empty(b))
 		return (false);
-	if (b->int_list[0] < b->int_list[b->top])
+	if (b->storage[BOTTOM] < b->storage[b->top])
 		return (true);
 	else
 		return (false);

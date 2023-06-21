@@ -19,7 +19,7 @@
 
 typedef struct s_stack {
 	int	stack_size;
-	int	*int_list;
+	int	*storage;
 	int	top;
 }				t_stack;
 
@@ -30,7 +30,7 @@ static inline t_stack	init_a(int arr_len)
 {
 	return ((t_stack){
 		.stack_size = arr_len,
-		.int_list = malloc(arr_len * sizeof(int)),
+		.storage = malloc(arr_len * sizeof(int)),
 		.top = -1
 	});
 }
@@ -40,7 +40,7 @@ static inline t_stack	init_b(int arr_len)
 {
 	return ((t_stack){
 		.stack_size = arr_len,
-		.int_list = malloc(arr_len * sizeof(int)),
+		.storage = malloc(arr_len * sizeof(int)),
 		.top = -1
 	});
 }
@@ -51,12 +51,21 @@ int		*parse_input(int argc, char **argv, t_stack *a, t_stack *b);
 
 // Fills stack a with input values
 void	fill_a(t_stack *a, int *int_arr, int arr_len);
+
 // Checks if the stack passed as parameter is empty
-bool	isempty(t_stack *stack);
+bool	is_empty(t_stack *stack);
+
 // Checks if the stack passed as parameter is full
-bool	isfull(t_stack *stack);
+bool	is_full(t_stack *stack);
+
+// Checks if the stack is sorted from the smallest (on top)
+// to the biggest at the bottom
+bool	is_sorted(t_stack *stack);
+
+
 // Pushes the parameter value to the top of the stack
 void	push(t_stack *stack, int value);
+
 // Pops and returns the top element from the stack 
 int		pop(t_stack *stack);
 
@@ -95,9 +104,11 @@ void	rrr(t_stack *a, t_stack *b);
 // UTILS ----------------------------------------
 
 // Frees integer array inside a and b  
-void	free_arrays(t_stack *a, t_stack *b);
-// Prints an error message on stderror and exits on failure
-void	handle_error(void);
-void	insertion_sort(int *int_list, int stack_size);
+void	free_stacks(t_stack *a, t_stack *b);
+void	insertion_sort(int *storage, int stack_size);
 
-#endif
+// Frees both stack storages, prints "Error" to STDERR
+// and returns EXIT_FAILURE
+void	panic(t_stack *a, t_stack *b);
+
+#endif // CHECKER_H

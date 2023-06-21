@@ -1,19 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_error.c                                     :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:43:34 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/07 01:20:51 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2022/12/04 17:36:50 by nnuno-ca          #+#    #+#             */
+/*   Updated: 2022/12/08 01:10:20 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/checker.h"
+#include "libft.h"
 
-void	handle_error(void)
+ssize_t	ft_atoll(const char *str)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
+	ssize_t	res;
+	int		signal;
+	int		i;
+
+	res = 0;
+	signal = 1;
+	i = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i += 1;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+		{
+			signal = -1;
+			i += 1;
+		}
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = ((res * 10) + (str[i] - '0'));
+		i += 1;
+	}
+	return ((int)res * signal);
 }

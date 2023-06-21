@@ -14,7 +14,7 @@
 
 void	pa(t_stack *a, t_stack *b)
 {
-	if (isempty(b))
+	if (is_empty(b))
 		return ;
 	push(a, pop(b));
 	write(STDOUT_FILENO, "pa\n", 3);
@@ -22,7 +22,7 @@ void	pa(t_stack *a, t_stack *b)
 
 void	pb(t_stack *a, t_stack *b)
 {
-	if (isempty(a))
+	if (is_empty(a))
 		return ;
 	push(b, pop(a));
 	write(STDOUT_FILENO, "pb\n", 3);
@@ -32,11 +32,11 @@ void	sa(t_stack *a, bool print_instruction)
 {
 	int	temp;
 
-	if (isempty(a) || a->top == 0)
+	if (is_empty(a) || a->top == 0)
 		return ;
-	temp = a->int_list[a->top - 1];
-	a->int_list[a->top - 1] = a->int_list[a->top];
-	a->int_list[a->top] = temp;
+	temp = a->storage[a->top - 1];
+	a->storage[a->top - 1] = a->storage[a->top];
+	a->storage[a->top] = temp;
 	if (print_instruction)
 		write(STDOUT_FILENO, "sa\n", 3);
 }
@@ -45,11 +45,11 @@ void	sb(t_stack *b, bool print_instruction)
 {
 	int	temp;
 
-	if (isempty(b) || b->top == 0)
+	if (is_empty(b) || b->top == 0)
 		return ;
-	temp = b->int_list[b->top - 1];
-	b->int_list[b->top - 1] = b->int_list[b->top];
-	b->int_list[b->top] = temp;
+	temp = b->storage[b->top - 1];
+	b->storage[b->top - 1] = b->storage[b->top];
+	b->storage[b->top] = temp;
 	if (print_instruction)
 		write(STDOUT_FILENO, "sb\n", 3);
 }

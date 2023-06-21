@@ -10,23 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
-
-int	find_maxpoint(t_stack *stack)
-{
-	int	i;
-	int	max;
-
-	i = 0;
-	max = stack->int_list[0];
-	while (i < stack->top)
-	{
-		if (max < stack->int_list[i])
-			max = stack->int_list[i];
-		i++;
-	}
-	return (max);
-}
+#include "push_swap.h"
 
 int	find_midpoint(t_stack *stack, int chunk_start)
 {
@@ -41,8 +25,8 @@ int	find_midpoint(t_stack *stack, int chunk_start)
 	sorted_arr = malloc(chunk_size * sizeof(int));
 	while ((i + chunk_start) < (stack->top + 1))
 	{
-		sorted_arr[i] = stack->int_list[i + chunk_start];
-		i++;
+		sorted_arr[i] = stack->storage[i + chunk_start];
+		i += 1;
 	}
 	insertion_sort(sorted_arr, chunk_size);
 	mid_point = sorted_arr[(chunk_size / 2)];
@@ -66,8 +50,8 @@ void	midpoint_sort(t_stack *a, t_stack *b)
 		move_smaller_bottom(a, b, mid_point);
 		finish_moving(a, b, mid_point, chunks++);
 	}
-	if (a->int_list[a->top] > a->int_list[a->top - 1])
+	if (a->storage[a->top] > a->storage[a->top - 1])
 		sa(a, true);
 	while (b->top != -1)
-		move_bigger_top(b, a, find_maxpoint(b));
+		move_bigger_top(b, a, max(b));
 }

@@ -10,14 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/checker.h"
+#include "checker.h"
 
 void	fill_a(t_stack *a, int *int_arr, int arr_len)
 {
 	int	i;
 
-	i = (arr_len - 1);
+	i = arr_len - 1;
 	while (i >= 0)
-		push(a, int_arr[i--]);
+	{
+		push(a, int_arr[i]);
+		i -= 1;
+	}
 	free(int_arr);
 }

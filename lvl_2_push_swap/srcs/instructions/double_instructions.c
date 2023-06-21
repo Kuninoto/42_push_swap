@@ -31,16 +31,16 @@ void	rra(t_stack *a, bool print_instruction)
 	int	save_last;
 	int	i;
 
-	if (isempty(a))
+	if (is_empty(a))
 		return ;
-	save_last = a->int_list[0];
+	save_last = a->storage[BOTTOM];
 	i = 0;
 	while (i < a->top)
 	{
-		a->int_list[i] = a->int_list[i + 1];
+		a->storage[i] = a->storage[i + 1];
 		i++;
 	}
-	a->int_list[a->top] = save_last;
+	a->storage[a->top] = save_last;
 	if (print_instruction)
 		write(STDOUT_FILENO, "rra\n", 4);
 }
@@ -50,16 +50,16 @@ void	rrb(t_stack *b, bool print_instruction)
 	int	save_last;
 	int	i;
 
-	if (isempty(b))
+	if (is_empty(b))
 		return ;
-	save_last = b->int_list[0];
+	save_last = b->storage[BOTTOM];
 	i = 0;
 	while (i < b->top)
 	{
-		b->int_list[i] = b->int_list[i + 1];
+		b->storage[i] = b->storage[i + 1];
 		i++;
 	}
-	b->int_list[b->top] = save_last;
+	b->storage[b->top] = save_last;
 	if (print_instruction)
 		write(STDOUT_FILENO, "rrb\n", 4);
 }

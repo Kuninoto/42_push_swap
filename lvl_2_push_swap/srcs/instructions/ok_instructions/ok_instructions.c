@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/push_swap.h"
+#include "push_swap.h"
 
 bool	ok_sa(t_stack *a)
 {
-	if (isempty(a))
+	if (is_empty(a))
 		return (false);
-	if (a->int_list[a->top] > a->int_list[a->top - 1])
+	if (a->storage[a->top] > a->storage[a->top - 1])
 		return (true);
 	else
 		return (false);
@@ -24,9 +24,9 @@ bool	ok_sa(t_stack *a)
 
 bool	ok_sb(t_stack *b)
 {
-	if (isempty(b))
+	if (is_empty(b))
 		return (false);
-	if (b->int_list[b->top] > b->int_list[b->top - 1])
+	if (b->storage[b->top] > b->storage[b->top - 1])
 		return (true);
 	else
 		return (false);
@@ -34,9 +34,9 @@ bool	ok_sb(t_stack *b)
 
 bool	ok_ra(t_stack *a)
 {
-	if (isempty(a))
+	if (is_empty(a))
 		return (false);
-	if (a->int_list[a->top] > a->int_list[0])
+	if (a->storage[a->top] > a->storage[BOTTOM])
 		return (true);
 	else
 		return (false);
@@ -44,9 +44,9 @@ bool	ok_ra(t_stack *a)
 
 bool	ok_rb(t_stack *b)
 {
-	if (isempty(b))
+	if (is_empty(b))
 		return (false);
-	if (b->int_list[b->top] > b->int_list[0])
+	if (b->storage[b->top] > b->storage[BOTTOM])
 		return (true);
 	else
 		return (false);

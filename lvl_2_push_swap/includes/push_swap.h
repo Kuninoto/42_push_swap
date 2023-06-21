@@ -19,28 +19,18 @@
 
 typedef struct s_stack {
 	int	stack_size;
-	int	*int_list;
+	int	*storage;
 	int	top;
 }				t_stack;
 
-// STACK INITIALIZERS ---------------------
+# define BOTTOM 0
 
 // Initializes stack a
-static inline t_stack	init_a(int arr_len)
+static inline t_stack	init_stack(int arr_len)
 {
 	return ((t_stack){
 		.stack_size = arr_len,
-		.int_list = malloc(arr_len * sizeof(int)),
-		.top = -1
-	});
-}
-
-// Initializes stack b
-static inline t_stack	init_b(int arr_len)
-{
-	return ((t_stack){
-		.stack_size = arr_len,
-		.int_list = malloc(arr_len * sizeof(int)),
+		.storage = malloc(arr_len * sizeof(int)),
 		.top = -1
 	});
 }
@@ -49,12 +39,22 @@ static inline t_stack	init_b(int arr_len)
 
 // Fills stack a with input values
 void	fill_a(t_stack *a, int argc, char **argv);
-// Checks if the stack passed as parameter is empty
-bool	isempty(t_stack *stack);
-// Checks if the stack passed as parameter is full
-bool	isfull(t_stack *stack);
-// Pushes the parameter value to the top of the stack
+
+// Checks if stack is empty
+bool	is_empty(t_stack *stack);
+
+// Checks if stack is full
+bool	is_full(t_stack *stack);
+
+// Checks if stack is sorted
+bool	is_sorted(t_stack *stack);
+
+// Finds the max value within the stack
+int		max(t_stack *stack);
+
+// Pushes A value to the top of the stack
 void	push(t_stack *stack, int value);
+
 // Pops and returns the top element from the stack 
 int		pop(t_stack *stack);
 
@@ -65,7 +65,7 @@ int		pop(t_stack *stack);
 void	sa(t_stack *a, bool print_instruction);
 // Swaps the first 2 elements of stack b
 void	sb(t_stack *b, bool print_instruction);
-// Swaps the first 2 elements of stack a and b
+// sa + sb
 void	ss(t_stack *a, t_stack *b);
 
 // PUSH -----------------------------------
@@ -106,34 +106,36 @@ bool	ok_rr(t_stack *a, t_stack *b);
 bool	ok_rrr(t_stack *a, t_stack *b);
 
 // SPECIAL CASES -------------------------------------
-void	special_case(t_stack *a, t_stack *b);
-
-// FINDS ---------------------------------------------
-int		find_maxpoint(t_stack *stack);
+void	special_case(t_stack *a);
 
 // MOVES -------------------------------------------------------------------
 
-/* 
-Enters by the top of stack a and 
+/*
+Starting by the top of stack a
 moves every number smaller than mid_point to stack b
 */
 void	move_smaller_top(t_stack *a, t_stack *b, int mid_point);
+/*
+Starting by the bottom of stack a
+moves every number smaller than mid_point to stack b
+*/
 void	move_smaller_bottom(t_stack *a, t_stack *b, int mid_point);
+
 void	finish_moving(t_stack *a, t_stack *b, int mid_point, int nr_chunks);
 bool	ismaxpoint_on_top_half(t_stack *b, int max_point);
 void	move_bigger_top(t_stack *b, t_stack *a, int max_point);
 
 // UTILS ----------------------------------------
 
-// Frees both integer arrays inside stack a and b
-void	free_arrays(t_stack *a, t_stack *b);
-// Prints an error message on stderror and exits on failure
-void	handle_error(void);
-// Checks if stack a is ordered
-bool	isordered(t_stack *a);
-void	insertion_sort(int *int_list, int stack_size);
+// Frees both stack storages
+void	free_stacks(t_stack *a, t_stack *b);
+
+// Frees both stack storages if they're not NULL
+// prints Error to STDERR and exit on EXIT_FAILURE
+void	panic(t_stack *a, t_stack *b);
+
+void	insertion_sort(int *storage, int stack_size);
 void	midpoint_sort(t_stack *a, t_stack *b);
 void	radix_sort(t_stack *a, t_stack *b);
-int		ft_long_atoi(const char *str, t_stack *a, int *int_array);
 
-#endif
+#endif // PUSH_SWAP_H

@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/push_swap.h"
+#include "push_swap.h"
 
-void	check_duplicates(t_stack *a, int *int_list, int arr_len)
+static void	check_duplicates(t_stack *a, int *storage, int arr_len)
 {
 	int	i;
 	int	j;
@@ -23,11 +23,10 @@ void	check_duplicates(t_stack *a, int *int_list, int arr_len)
 		j = i + 1;
 		while (j < arr_len)
 		{
-			if (int_list[i] == int_list[j])
+			if (storage[i] == storage[j])
 			{
-				free(a->int_list);
-				free(int_list);
-				handle_error();
+				free(storage);
+				panic(a, NULL);
 			}
 			j++;
 		}
@@ -35,70 +34,73 @@ void	check_duplicates(t_stack *a, int *int_list, int arr_len)
 }
 
 // Converts all number strs provided to integers
-int	*conv_argv_to_int(t_stack *a, int argc, char **argv)
+static int	*conv_argv_to_int(t_stack *a, int argc, char **argv)
 {
 	int	*int_list;
 	int	i;
 	int	j;
-	int	temp;
+	int	nr;
 
 	int_list = malloc((argc - 1) * sizeof(int));
 	i = 0;
 	j = 1;
 	while (argv[j])
 	{
-		temp = ft_long_atoi(argv[j], a, int_list);
-		if (temp == 0 && argv[j][0] != '0')
+		nr = ft_atoll(argv[j]);
+		if (nr > INT_MAX || nr <= INT_MIN)
 		{
-			free(a->int_list);
 			free(int_list);
-			handle_error();
+			panic(a, NULL);
 		}
-		int_list[i++] = ft_long_atoi(argv[j++], a, int_list);
+		int_list[i] = nr;
+		i += 1;
+		j += 1;
 	}
 	return (int_list);
 }
 
 // Checks whether all characters provided are digits
-void	check_args(char **argv, t_stack *a)
+static void	check_args(char **argv, t_stack *a)
 {
 	int	i;
 	int	j;
 
-	i = 0;
-	while (argv[++i])
+	i = 1;
+	while (argv[i])
 	{
-		j = -1;
-		while (argv[i][++j])
+		j = 0;
+		while (argv[i][j])
 		{
 			if ((!ft_isdigit(argv[i][j]) && argv[i][j] != '-')
 				|| (argv[i][j] == '-' && !ft_isdigit(argv[i][j + 1])))
-			{
-				free(a->int_list);
-				handle_error();
-			}
+				panic(a, NULL);
+			j += 1;
 		}
+		i += 1;
 	}
 }
 
-int	*parse_input(t_stack *a, int argc, char **argv)
+static int	*parse_input(t_stack *a, int argc, char **argv)
 {
-	int	*int_list;
+	int	*storage;
 
 	check_args(argv, a);
-	int_list = conv_argv_to_int(a, argc, argv);
-	check_duplicates(a, int_list, (argc - 1));
-	return (int_list);
+	storage = conv_argv_to_int(a, argc, argv);
+	check_duplicates(a, storage, (argc - 1));
+	return (storage);
 }
 
 void	fill_a(t_stack *a, int argc, char **argv)
 {
 	int	i;
-	int	*int_arr;
+	int	*integer_list;
 
 	i = (argc - 1) - 1;
-	int_arr = parse_input(a, argc, argv);
+	integer_list = parse_input(a, argc, argv);
 	while (i >= 0)
-		push(a, int_arr[i--]);
-	free(int_arr);
+	{
+		push(a, integer_list[i]);
+		i -= 1;
+	}
+	free(integer_list);
 }
