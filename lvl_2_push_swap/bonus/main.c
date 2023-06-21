@@ -10,67 +10,47 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/checker.h"
+#include "checker.h"
 
-bool	isordered(t_stack *a)
+static void	execute_instructions(t_stack *a, t_stack *b, char *instruction)
 {
-	int	i;
-
-	i = 0;
-	while (i < a->top)
-	{
-		if (a->int_list[i] < a->int_list[i + 1])
-			return (false);
-		i++;
-	}
-	return (true);
-}
-
-void	execute_instructions(t_stack *a, t_stack *b, char *instruction)
-{
-	size_t	len;
-
-	len = ft_strlen(instruction);
-	if (ft_strncmp(instruction, "sa", len - 1) == 0)
+	if (streq(instruction, "sa"))
 		sa(a);
-	else if (ft_strncmp(instruction, "sb", len - 1) == 0)
+	else if (streq(instruction, "sb"))
 		sb(b);
-	else if (ft_strncmp(instruction, "ss", len - 1) == 0)
+	else if (streq(instruction, "ss"))
 		ss(a, b);
-	else if (ft_strncmp(instruction, "pa", len - 1) == 0)
+	else if (streq(instruction, "pa"))
 		pa(a, b);
-	else if (ft_strncmp(instruction, "pb", len - 1) == 0)
+	else if (streq(instruction, "pb"))
 		pb(a, b);
-	else if (ft_strncmp(instruction, "rra", len - 1) == 0)
+	else if (streq(instruction, "rra"))
 		rra(a);
-	else if (ft_strncmp(instruction, "rrb", len - 1) == 0)
+	else if (streq(instruction, "rrb"))
 		rrb(b);
-	else if (ft_strncmp(instruction, "rrr", len - 1) == 0)
+	else if (streq(instruction, "rrr"))
 		rrr(a, b);
-	else if (ft_strncmp(instruction, "ra", len - 1) == 0)
+	else if (streq(instruction, "ra"))
 		ra(a);
-	else if (ft_strncmp(instruction, "rb", len - 1) == 0)
+	else if (streq(instruction, "rb"))
 		rb(b);
-	else if (ft_strncmp(instruction, "rr", len - 1) == 0)
+	else if (streq(instruction, "rr"))
 		rr(a, b);
 	else
-	{
-		free_arrays(a, b);
-		handle_error();
-	}
+		panic(a, b);
 }
 
-void	get_instructions(t_stack *a, t_stack *b)
+static void	process_instructions(t_stack *a, t_stack *b)
 {
-	char	*new_instruction;
+	char	*instruction;
 
 	while (true)
 	{
-		new_instruction = get_next_line(STDIN_FILENO);
-		if (new_instruction == NULL)
+		instruction = get_next_line(STDIN_FILENO);
+		if (instruction == NULL)
 			break ;
-		execute_instructions(a, b, new_instruction);
-		free(new_instruction);
+		execute_instructions(a, b, instruction);
+		free(instruction);
 	}
 }
 
@@ -82,11 +62,11 @@ int	main(int argc, char **argv)
 	a = init_a(argc - 1);
 	b = init_b(argc - 1);
 	fill_a(&a, parse_input(argc, argv, &a, &b), (argc - 1));
-	get_instructions(&a, &b);
-	if ((isordered(&a) == true) && isempty(&b))
-		write(STDOUT_FILENO, "OK\n", 3);
+	process_instructions(&a, &b);
+	if (is_sorted(&a) && is_empty(&b))
+		ft_putendl_fd("OK", STDOUT_FILENO);
 	else
-		write(STDOUT_FILENO, "KO\n", 3);
-	free_arrays(&a, &b);
+		ft_putendl_fd("KO", STDOUT_FILENO);
+	free_stacks(&a, &b);
 	return (EXIT_SUCCESS);
 }

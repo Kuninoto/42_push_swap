@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_arrays.c                                      :+:      :+:    :+:   */
+/*   insertion_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 17:40:58 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 00:56:12 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2022/12/04 17:36:50 by nnuno-ca          #+#    #+#             */
+/*   Updated: 2022/12/08 01:10:20 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/push_swap.h"
+#include "push_swap.h"
 
-void	free_arrays(t_stack *a, t_stack *b)
+void	insertion_sort(int *storage, int chunk_size)
 {
-	free(a->int_list);
-	free(b->int_list);
+	int	i;
+	int	j;
+	int	key;
+
+	i = 1;
+	while (i < chunk_size)
+	{
+		key = storage[i];
+		j = i - 1;
+		while (j >= 0 && storage[j] > key)
+		{
+			storage[j + 1] = storage[j];
+			j -= 1;
+		}
+		storage[j + 1] = key;
+		i += 1;
+	}
 }

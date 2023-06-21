@@ -12,39 +12,42 @@
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+INC = -I./includes
+BONUS_INC =-I./bonus/includes
+VPATH = srcs srcs/algos srcs/instructions srcs/instructions/ok_instructions\
+		srcs/stack srcs/utils
 LIBFT = ./libft/libft.a
 RM = rm -rf
 
+ALGOS = insertion_sort midpoint_sort radix_sort special_case
+INSTRUCTIONS = double_instructions single_instructions single_instructions_2
+OK_INSTRUCTIONS = ok_instructions ok_instructions_2
+STACK = free_stacks is_sorted max stack_utils
+UTILS = fill_a panic
+GENERAL = moves 
+
 # PUSH_SWAP ---------------------------------------------
 NAME = push_swap
-SRCS = srcs/utils/handle_error.c\
-	   srcs/utils/stack/stack_utils.c\
-	   srcs/utils/stack/fill_a.c\
-	   srcs/utils/stack/free_arrays.c\
-	   srcs/utils/insertion_sort.c\
-	   srcs/utils/radix_sort.c\
-	   srcs/utils/is_ordered.c\
-	   srcs/utils/ft_long_atoi.c\
-	   srcs/instructions/single_instructions.c\
-	   srcs/instructions/single_instructions_2.c\
-	   srcs/instructions/double_instructions.c\
-	   srcs/instructions/ok_instructions/ok_instructions.c\
-	   srcs/instructions/ok_instructions/ok_instructions_2.c\
-	   srcs/special_case.c\
-	   srcs/utils/midpoint_sort.c\
-	   srcs/moves/moves.c\
+SRCS = $(addsuffix .c, $(ALGOS))\
+	   $(addsuffix .c, $(INSTRUCTIONS))\
+	   $(addsuffix .c, $(OK_INSTRUCTIONS))\
+	   $(addsuffix .c, $(STACK))\
+	   $(addsuffix .c, $(UTILS))\
+	   $(addsuffix .c, $(GENERAL))\
 	   main.c
-OBJS = $(SRCS:.c=.o)
+OBJ_DIR = obj
+OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 # CHECKER ------------------------------------------------
 BONUS_NAME = checker
-BONUS_SRCS = bonus/srcs/utils/handle_error.c\
-			 bonus/srcs/utils/stack/stack_utils.c\
-			 bonus/srcs/utils/stack/fill_a.c\
-			 bonus/srcs/utils/stack/free_arrays.c\
-			 bonus/srcs/instructions/single_instructions.c\
+BONUS_SRCS = bonus/srcs/instructions/single_instructions.c\
 	   		 bonus/srcs/instructions/single_instructions_2.c\
 			 bonus/srcs/instructions/double_instructions.c\
+			 bonus/srcs/utils/stack/fill_a.c\
+			 bonus/srcs/utils/stack/free_stacks.c\
+			 bonus/srcs/utils/stack/is_sorted.c\
+			 bonus/srcs/utils/stack/stack_utils.c\
+			 bonus/srcs/utils/panic.c\
 			 bonus/srcs/parse_input.c\
 			 bonus/main.c
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
@@ -54,20 +57,31 @@ all: $(NAME)
 $(LIBFT):
 	$(MAKE) -C ./libft
 
-$(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o push_swap
+$(OBJ_DIR):
+	mkdir -p obj
+
+$(OBJ_DIR)/%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@ $(INC)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@ $(BONUS_INC)
+
+$(NAME): $(OBJ_DIR) $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 bonus: $(BONUS_NAME)
 
 $(BONUS_NAME): $(BONUS_OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) -o checker
+	$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) -o $(BONUS_NAME)
 
 clean:
 	$(MAKE) clean -C ./libft
 	$(RM) $(OBJS) $(BONUS_OBJS)
+
 fclean: clean
 	$(MAKE) fclean -C ./libft
-	$(RM) $(NAME) $(BONUS_NAME)
+	$(RM) $(NAME) $(BONUS_NAME) $(OBJ_DIR)
+
 re: fclean all
 
 .SILENT:

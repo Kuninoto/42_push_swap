@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_error.c                                     :+:      :+:    :+:   */
+/*   streq.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:43:34 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 01:23:08 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2022/11/14 22:18:00 by nnuno-ca          #+#    #+#             */
+/*   Updated: 2022/11/15 01:47:33 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	handle_error(void)
+bool	streq(char *str1, char *str2)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
+	size_t	i;
+
+	if ((str1 && !str2) || (!str1 && str2))
+		return (false);
+	i = 0;
+	while (str1[i] || str2[i])
+	{
+		if (str1[i] != str2[i])
+			return (false);
+		i += 1;
+	}
+	return (true);
 }

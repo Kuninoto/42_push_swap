@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_arrays.c                                      :+:      :+:    :+:   */
+/*   panic.c	                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 17:40:58 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 00:54:09 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2022/11/30 13:43:34 by nnuno-ca          #+#    #+#             */
+/*   Updated: 2022/12/07 01:20:51 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/checker.h"
+#include "checker.h"
 
-void	free_arrays(t_stack *a, t_stack *b)
+void	panic(t_stack *a, t_stack *b)
 {
-	free(a->int_list);
-	free(b->int_list);
+	ft_putendl_fd("Error", 2);
+	free(a->storage);
+	free(b->storage);
+	exit(EXIT_FAILURE);
 }

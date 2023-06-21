@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   double_instructions.c                              :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 17:53:35 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/08 01:50:57 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2022/11/30 19:39:38 by nnuno-ca          #+#    #+#             */
+/*   Updated: 2022/12/07 03:39:27 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	ss(t_stack *a, t_stack *b)
+bool	is_sorted(t_stack *stack)
 {
-	sa(a);
-	sb(b);
-}
+	int	i;
 
-void	rr(t_stack *a, t_stack *b)
-{
-	ra(a);
-	rb(b);
-}
-
-void	rrr(t_stack *a, t_stack *b)
-{
-	rra(a);
-	rrb(b);
+	i = 0;
+	while (i < stack->top)
+	{
+		if (stack->storage[i] < stack->storage[i + 1])
+			return (false);
+		i += 1;
+	}
+	return (true);
 }

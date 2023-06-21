@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/checker.h"
+#include "checker.h"
 
-bool	isempty(t_stack *stack)
+bool	is_empty(t_stack *stack)
 {
 	if (stack->top == -1)
 		return (true);
@@ -20,7 +20,7 @@ bool	isempty(t_stack *stack)
 		return (false);
 }
 
-bool	isfull(t_stack *stack)
+bool	is_full(t_stack *stack)
 {
 	if (stack->top == (stack->stack_size - 1))
 		return (true);
@@ -30,24 +30,18 @@ bool	isfull(t_stack *stack)
 
 void	push(t_stack *stack, int value)
 {
-	if (!isfull(stack))
+	if (!is_full(stack))
 	{
-		stack->top++;
-		stack->int_list[stack->top] = value;
+		stack->top += 1;
+		stack->storage[stack->top] = value;
 	}	
 }
 
 int	pop(t_stack *stack)
 {
-	int	popped_value;
+	int	retrieved_value;
 
-	if (!isempty(stack))
-	{
-		popped_value = stack->int_list[stack->top];
-		stack->top--;
-		return (popped_value);
-	}
-	else
-		write(1, "Can't pop from an empty stack\n", 31);
-	exit(EXIT_FAILURE);
+	retrieved_value = stack->storage[stack->top];
+	stack->top -= 1;
+	return (retrieved_value);
 }

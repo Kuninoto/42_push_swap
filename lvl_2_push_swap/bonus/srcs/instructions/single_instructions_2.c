@@ -10,23 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/checker.h"
+#include "checker.h"
 
 void	ra(t_stack *a)
 {
 	int	save_first;
 	int	i;
 
-	if (isempty(a))
+	if (is_empty(a))
 		return ;
-	save_first = a->int_list[a->top];
+	save_first = a->storage[a->top];
 	i = a->top;
 	while (i > 0)
 	{
-		a->int_list[i] = a->int_list[i - 1];
-		i--;
+		a->storage[i] = a->storage[i - 1];
+		i -= 1;
 	}
-	a->int_list[0] = save_first;
+	a->storage[0] = save_first;
 }
 
 void	rb(t_stack *b)
@@ -34,16 +34,16 @@ void	rb(t_stack *b)
 	int	save_first;
 	int	i;
 
-	if (isempty(b))
+	if (is_empty(b))
 		return ;
-	save_first = b->int_list[b->top];
+	save_first = b->storage[b->top];
 	i = b->top;
 	while (i > 0)
 	{
-		b->int_list[i] = b->int_list[i - 1];
-		i--;
+		b->storage[i] = b->storage[i - 1];
+		i -= 1;
 	}
-	b->int_list[0] = save_first;
+	b->storage[0] = save_first;
 }
 
 void	rra(t_stack *a)
@@ -51,16 +51,16 @@ void	rra(t_stack *a)
 	int	save_last;
 	int	i;
 
-	if (isempty(a))
+	if (is_empty(a))
 		return ;
-	save_last = a->int_list[0];
+	save_last = a->storage[0];
 	i = 0;
 	while (i < a->top)
 	{
-		a->int_list[i] = a->int_list[i + 1];
-		i++;
+		a->storage[i] = a->storage[i + 1];
+		i += 1;
 	}
-	a->int_list[a->top] = save_last;
+	a->storage[a->top] = save_last;
 }
 
 void	rrb(t_stack *b)
@@ -68,14 +68,14 @@ void	rrb(t_stack *b)
 	int	save_last;
 	int	i;
 
-	if (isempty(b))
+	if (is_empty(b))
 		return ;
-	save_last = b->int_list[0];
+	save_last = b->storage[0];
 	i = 0;
 	while (i < b->top)
 	{
-		b->int_list[i] = b->int_list[i + 1];
-		i++;
+		b->storage[i] = b->storage[i + 1];
+		i += 1;
 	}
-	b->int_list[b->top] = save_last;
+	b->storage[b->top] = save_last;
 }

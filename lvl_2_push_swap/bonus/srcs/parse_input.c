@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/checker.h"
+#include "checker.h"
 
-void	check_duplicates(int *int_list, int arr_len, t_stack *a, t_stack *b)
+void	check_duplicates(int *storage, int arr_len, t_stack *a, t_stack *b)
 {
 	int	i;
 	int	j;
@@ -23,13 +23,12 @@ void	check_duplicates(int *int_list, int arr_len, t_stack *a, t_stack *b)
 		j = i + 1;
 		while (j < arr_len)
 		{
-			if (int_list[i] == int_list[j])
+			if (storage[i] == storage[j])
 			{
-				free(int_list);
-				free_arrays(a, b);
-				handle_error();
+				free(storage);
+				panic(a, b);
 			}
-			j++;
+			j += 1;
 		}
 	}
 }
@@ -37,16 +36,20 @@ void	check_duplicates(int *int_list, int arr_len, t_stack *a, t_stack *b)
 // Converts all number strings provided to integers
 int	*conv_argv_to_int(int argc, char **argv)
 {
-	int	*int_list;
+	int	*storage;
 	int	i;
 	int	j;
 
-	int_list = malloc((argc - 1) * sizeof(int));
+	storage = malloc((argc - 1) * sizeof(int));
 	i = 0;
 	j = 1;
 	while (argv[j])
-		int_list[i++] = ft_long_atoi(argv[j++]);
-	return (int_list);
+	{
+		storage[i] = ft_atoll(argv[j]);
+		i += 1;
+		j += 1;
+	}
+	return (storage);
 }
 
 // Checks if all characters provided are digits
@@ -57,31 +60,29 @@ void	check_args(int argc, char **argv, t_stack *a, t_stack *b)
 
 	if (argc < 2)
 	{
-		free_arrays(a, b);
+		free_stacks(a, b);
 		exit(EXIT_FAILURE);
 	}
 	i = 0;
 	while (argv[++i])
 	{
-		j = -1;
-		while (argv[i][++j])
+		j = 0;
+		while (argv[i][j])
 		{
 			if ((!ft_isdigit(argv[i][j]) && argv[i][j] != '-') ||
 				(argv[i][j] == '-' && !ft_isdigit(argv[i][j + 1])))
-			{
-				free_arrays(a, b);
-				handle_error();
-			}
+				panic(a, b);
+			j += 1;
 		}
 	}
 }
 
 int	*parse_input(int argc, char **argv, t_stack *a, t_stack *b)
 {
-	int	*int_list;
+	int	*storage;
 
 	check_args(argc, argv, a, b);
-	int_list = conv_argv_to_int(argc, argv);
-	check_duplicates(int_list, (argc - 1), a, b);
-	return (int_list);
+	storage = conv_argv_to_int(argc, argv);
+	check_duplicates(storage, (argc - 1), a, b);
+	return (storage);
 }

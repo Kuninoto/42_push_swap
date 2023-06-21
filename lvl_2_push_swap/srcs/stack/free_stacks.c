@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_error.c                                     :+:      :+:    :+:   */
+/*   free_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:43:34 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/12/07 01:21:00 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2022/12/06 17:40:58 by nnuno-ca          #+#    #+#             */
+/*   Updated: 2022/12/08 00:56:12 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
-void	handle_error(void)
+void	free_stacks(t_stack *a, t_stack *b)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
+	free(a->storage);
+	free(b->storage);
 }

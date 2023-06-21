@@ -88,8 +88,8 @@ int			prt_hexa(unsigned int nbr, bool upper_case);
 
 char		*join_free(char *to_free, char *to_append);
 
-void		handle_errors(char *error_msg);
+bool		streq(char *str1, char *str2);
 
-void		handle_error(void);
+ssize_t		ft_atoll(const char *str);
 
-#endif
+#endif // LIBFT_H
