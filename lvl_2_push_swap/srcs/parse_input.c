@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "push_swap.h"
 
 static bool	has_duplicates(int *storage, int arr_len)
 {
@@ -80,7 +80,7 @@ static bool	is_all_digits(char **argv)
 	return (true);
 }
 
-int	*parse_input(t_stack *a, int argc, char **argv)
+int	*parse_input(int argc, char **argv, t_stack *a)
 {
 	int	*storage;
 

@@ -24,7 +24,7 @@ INSTRUCTIONS = double_instructions single_instructions single_instructions_2
 OK_INSTRUCTIONS = ok_instructions ok_instructions_2
 STACK = free_stacks is_sorted max stack_utils
 UTILS = fill_a panic
-GENERAL = moves 
+GENERAL = moves parse_input
 
 # PUSH_SWAP ---------------------------------------------
 NAME = push_swap
@@ -43,11 +43,11 @@ BONUS_NAME = checker
 BONUS_SRCS = bonus/srcs/instructions/single_instructions.c\
 	   		 bonus/srcs/instructions/single_instructions_2.c\
 			 bonus/srcs/instructions/double_instructions.c\
-			 bonus/srcs/utils/stack/fill_a.c\
-			 bonus/srcs/utils/stack/free_stacks.c\
-			 bonus/srcs/utils/stack/is_sorted.c\
-			 bonus/srcs/utils/stack/stack_utils.c\
-			 bonus/srcs/utils/panic.c\
+			 bonus/srcs/stack/fill_a.c\
+			 bonus/srcs/stack/free_stacks.c\
+			 bonus/srcs/stack/is_sorted.c\
+			 bonus/srcs/stack/stack_utils.c\
+			 bonus/srcs/panic.c\
 			 bonus/srcs/parse_input.c\
 			 bonus/main.c
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)

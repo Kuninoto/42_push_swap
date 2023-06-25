@@ -45,7 +45,7 @@ static inline t_stack	init_b(int arr_len)
 	});
 }
 
-int		*parse_input(int argc, char **argv, t_stack *a, t_stack *b);
+int		*parse_input(t_stack *a, int argc, char **argv);
 
 // STACK UTILS ----------------------------
 
@@ -61,7 +61,6 @@ bool	is_full(t_stack *stack);
 // Checks if the stack is sorted from the smallest (on top)
 // to the biggest at the bottom
 bool	is_sorted(t_stack *stack);
-
 
 // Pushes the parameter value to the top of the stack
 void	push(t_stack *stack, int value);

@@ -36,5 +36,5 @@ ssize_t	ft_atoll(const char *str)
 		res = ((res * 10) + (str[i] - '0'));
 		i += 1;
 	}
-	return ((int)res * signal);
+	return (res * signal);
 }

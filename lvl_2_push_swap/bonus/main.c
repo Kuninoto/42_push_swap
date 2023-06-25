@@ -14,27 +14,27 @@
 
 static void	execute_instructions(t_stack *a, t_stack *b, char *instruction)
 {
-	if (streq(instruction, "sa"))
+	if (streq(instruction, "sa\n"))
 		sa(a);
-	else if (streq(instruction, "sb"))
+	else if (streq(instruction, "sb\n"))
 		sb(b);
-	else if (streq(instruction, "ss"))
+	else if (streq(instruction, "ss\n"))
 		ss(a, b);
-	else if (streq(instruction, "pa"))
+	else if (streq(instruction, "pa\n"))
 		pa(a, b);
-	else if (streq(instruction, "pb"))
+	else if (streq(instruction, "pb\n"))
 		pb(a, b);
-	else if (streq(instruction, "rra"))
+	else if (streq(instruction, "rra\n"))
 		rra(a);
-	else if (streq(instruction, "rrb"))
+	else if (streq(instruction, "rrb\n"))
 		rrb(b);
-	else if (streq(instruction, "rrr"))
+	else if (streq(instruction, "rrr\n"))
 		rrr(a, b);
-	else if (streq(instruction, "ra"))
+	else if (streq(instruction, "ra\n"))
 		ra(a);
-	else if (streq(instruction, "rb"))
+	else if (streq(instruction, "rb\n"))
 		rb(b);
-	else if (streq(instruction, "rr"))
+	else if (streq(instruction, "rr\n"))
 		rr(a, b);
 	else
 		panic(a, b);
@@ -59,9 +59,11 @@ int	main(int argc, char **argv)
 	t_stack		a;
 	t_stack		b;
 
+	if (argc < 2)
+		return (EXIT_SUCCESS);
 	a = init_a(argc - 1);
+	fill_a(&a, parse_input(&a, argc, argv), (argc - 1));
 	b = init_b(argc - 1);
-	fill_a(&a, parse_input(argc, argv, &a, &b), (argc - 1));
 	process_instructions(&a, &b);
 	if (is_sorted(&a) && is_empty(&b))
 		ft_putendl_fd("OK", STDOUT_FILENO);

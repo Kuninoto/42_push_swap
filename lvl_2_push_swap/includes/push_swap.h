@@ -35,10 +35,12 @@ static inline t_stack	init_stack(int arr_len)
 	});
 }
 
+int		*parse_input(int argc, char **argv, t_stack *a);
+
 // STACK UTILS ---------------------------------------
 
 // Fills stack a with input values
-void	fill_a(t_stack *a, int argc, char **argv);
+void	fill_a(t_stack *a, int *int_arr, int argc);
 
 // Checks if stack is empty
 bool	is_empty(t_stack *stack);

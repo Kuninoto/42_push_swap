@@ -15,7 +15,9 @@
 void	panic(t_stack *a, t_stack *b)
 {
 	ft_putendl_fd("Error", 2);
-	free(a->storage);
-	free(b->storage);
+	if (a)
+		free(a->storage);
+	if (b)
+		free(b->storage);
 	exit(EXIT_FAILURE);
 }
