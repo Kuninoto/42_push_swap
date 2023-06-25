@@ -3,7 +3,7 @@
 ## Grade: 90/100
 
 ### Overview:
-_Push_swap is a program that sorts a stack of integers with the minimum instructions possible and an auxiliary stack.
+_Push_swap_ is a program that sorts a stack of integers with the minimum instructions possible and an auxiliary stack.
 Instructions are defined within the subject of the project; They're the only way allowed to
 manipulate the data in the stacks.
 
